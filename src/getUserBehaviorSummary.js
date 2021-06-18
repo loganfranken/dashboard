@@ -3,7 +3,8 @@ export default (callback) => {
     // Initial state
     let state = {
         seconds: 0,
-        clicks: 0
+        clicks: 0,
+        location: { latitude: null, longitude: null }
     };
 
     // Set up calls to return state
@@ -15,5 +16,8 @@ export default (callback) => {
 
     // Measure: Number of seconds user has spent on dashboard
     setInterval(() => { state.seconds++; update(); }, 1000);
+
+    // Measure: Current location
+    navigator.geolocation.getCurrentPosition(({ coords }) => { state.location = coords; update(); }, () => {});
 
 }
