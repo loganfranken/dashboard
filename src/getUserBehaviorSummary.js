@@ -4,6 +4,7 @@ export default (callback) => {
     let state = {
         seconds: 0,
         clicks: 0,
+        velocity: 0,
         location: { latitude: null, longitude: null }
     };
 
@@ -19,5 +20,26 @@ export default (callback) => {
 
     // Measure: Current location
     navigator.geolocation.getCurrentPosition(({ coords }) => { state.location = coords; update(); }, () => {});
+
+    // Measure: Mouse Velocity
+    let lastX = null;
+    let lastY = null;
+    let lastTime = null;
+    addEventListener('mousemove', (evt) => {
+        
+        const x = evt.x;
+        const y = evt.y;
+        const time = Date.now();
+
+        if(lastX !== null && lastY !== null && lastTime !== null)
+        {
+            state.velocity = Math.sqrt(Math.pow(Math.abs(lastX - x), 2), Math.pow(Math.abs(lastY - y), 2)) / (time - lastTime);
+            update();
+        }
+        
+        lastX = x;
+        lastY = y;
+        lastTime = time;
+    });
 
 }

@@ -6,6 +6,7 @@ import getUserBehaviorSummary from '!./getUserBehaviorSummary'
 import ClickCounterWidget from './Widgets/ClickCounterWidget'
 import LocationWidget from './Widgets/LocationWidget'
 import TimerWidget from './Widgets/TimerWidget'
+import VelocityWidget from './Widgets/VelocityWidget'
 
 export default hot(() => {
 
@@ -16,6 +17,7 @@ export default hot(() => {
     <ClickCounterWidget clicks={summary.clicks} />
     <TimerWidget seconds={summary.seconds} />
     <LocationWidget location={summary.location} />
+    <VelocityWidget velocity={summary.velocity} />
   </React.Fragment>
 
 });
