@@ -16,14 +16,18 @@ export default hot(() => {
   const [summary, updateUserBehaviorSummary] = useState(getUserBehaviorSummary());
   useEffect(() => { getUserBehaviorSummary(updateUserBehaviorSummary); }, []);
 
+  // Filter down the goals to include the completed ones and one incomplete one
+  const filteredGoals = summary.goals.filter(goal => goal.isComplete);
+  filteredGoals.unshift(summary.goals.filter(goal => !goal.isComplete)[0]);
+
   return <div className="dashboard">
     <div className="widget-container">
-     <TimerWidget seconds={summary.seconds} />
+      {summary.activeMeasures.includes('seconds') && <TimerWidget seconds={summary.seconds} /> }
+      {summary.activeMeasures.includes('clicks') && <ClickCounterWidget clicks={summary.clicks} /> }
     </div>
-    <GoalList />
+    <GoalList goals={filteredGoals} />
     <MessageList />
     {/*
-    <ClickCounterWidget clicks={summary.clicks} />
     <LocationWidget location={summary.location} />
     <VelocityWidget velocity={summary.velocity} />
     */}

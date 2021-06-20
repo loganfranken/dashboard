@@ -5,10 +5,10 @@ export default () => <div className="panel info-panel message-panel">
 
     <ul className="message-list">
         <li>
-            <span class="content">Message #1</span>
+            <span className="content">Message #1</span>
         </li>
         <li>
-            <span class="content">Message #2</span>
+            <span className="content">Message #2</span>
         </li>
     </ul>
 </div>

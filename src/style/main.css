@@ -71,6 +71,12 @@ html, body
     width: 100%;
 }
 
+.info-panel h2
+{
+    color: rgb(72, 156, 235);
+    font-size: 1.5em;
+}
+
 .info-panel ul
 {
     list-style: none;
@@ -92,6 +98,13 @@ html, body
     height: 40em;
 }
 
+.goal-title
+{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.3em;
+}
+
 .goal-list li progress
 {
     border-radius: 0;
@@ -103,6 +116,7 @@ html, body
 .goal-list li progress::-webkit-progress-value
 {
     background-color: rgb(72, 156, 235);
+    transition: width 0.2s;
 }
 
 .goal-list li progress::-webkit-progress-bar
