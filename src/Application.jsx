@@ -4,6 +4,7 @@ import { hot } from 'react-hot-loader/root'
 import getUserBehaviorSummary from '!./getUserBehaviorSummary'
 
 import ClickCounter from './Widgets/ClickCounter'
+import KeyPressCounter from './Widgets/KeyPressCounter'
 import Timer from './Widgets/Timer'
 
 import GoalList from './GoalList'
@@ -22,6 +23,7 @@ export default hot(() => {
     <div className="widget-container">
       {summary.activeMeasures.includes('seconds') && <Timer seconds={summary.seconds} /> }
       {summary.activeMeasures.includes('clicks') && <ClickCounter clicks={summary.clicks} /> }
+      {summary.activeMeasures.includes('keyPresses') && <KeyPressCounter keyPresses={summary.keyPresses} /> }
     </div>
     <GoalList goals={filteredGoals} />
     <MessageList />

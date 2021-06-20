@@ -2,7 +2,8 @@ export default (callback) => {
 
     const goals = [
         { measure: 'seconds', target: 10, description: '10 seconds on dashboard' },
-        { measure: 'clicks', target: 20, description: '20 clicks' }
+        { measure: 'clicks', target: 20, description: '20 clicks' },
+        { measure: 'keyPresses', target: 10, description: '10 keys pressed' }
     ];
 
     // Initial state
@@ -11,12 +12,11 @@ export default (callback) => {
         activeMeasures: ['seconds'],
 
         seconds: 0,
-        clicks: 0
+        clicks: 0,
+        keyPresses: 0,
 
         /*
-        clicks: 0,
         velocity: 0,
-        location: { latitude: null, longitude: null }
         */
     };
 
@@ -66,6 +66,9 @@ export default (callback) => {
 
     // Measure: Number of times user has clicked
     addEventListener('click', () => { state.clicks++; update(); });
+
+    // Measure: Number of key presses
+    addEventListener('keyup', () => { state.keyPresses++; update(); });
 
     /*
     // Measure: Mouse Velocity
