@@ -43,11 +43,24 @@ html, body
 /* =WIDGET
 ------------------------------------------------------- */
 
+.widget
+{
+    padding-bottom: 1.5em;
+}
+
 .widget .value
 {
     display: block;
     text-align: center;
     font-size: 9em;
+}
+
+.widget .measurement
+{
+    color: rgb(128, 128, 128);
+    display: block;
+    text-align: center;
+    margin-top: -1.5em;
 }
 
 /* =INFO-PANELS

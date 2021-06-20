@@ -10,7 +10,6 @@ import VelocityWidget from './Widgets/VelocityWidget'
 
 import GoalList from './Widgets/GoalList'
 import MessageList from './Widgets/MessageList'
-import Widget from './Widgets/Widget'
 
 export default hot(() => {
 
@@ -19,13 +18,12 @@ export default hot(() => {
 
   return <div className="dashboard">
     <div className="widget-container">
-     <Widget />
+     <TimerWidget seconds={summary.seconds} />
     </div>
     <GoalList />
     <MessageList />
     {/*
     <ClickCounterWidget clicks={summary.clicks} />
-    <TimerWidget seconds={summary.seconds} />
     <LocationWidget location={summary.location} />
     <VelocityWidget velocity={summary.velocity} />
     */}
