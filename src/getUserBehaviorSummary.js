@@ -2,6 +2,7 @@ export default (callback) => {
 
     const goals = [
         { measure: 'seconds', target: 10, description: '10 seconds on dashboard' },
+        { measure: 'uniqueKeyPresses', target: 10, description: '10 unique key presses' },
         { measure: 'clickButtonRatio', target: 0.5, description: '0.5 click button ratio' },
         { measure: 'clicks', target: 20, description: '20 clicks' },
         { measure: 'keyPresses', target: 10, description: '10 keys pressed' },
@@ -11,15 +12,21 @@ export default (callback) => {
 
     // Initial state
     let state = {
+
         goals,
         activeMeasures: ['seconds'],
 
         seconds: 0,
+
         clicks: 0,
+        clickButtonRatio: 0,
+
         keyPresses: 0,
+        uniqueKeyPresses: 0,
+
         mouseDistance: 0,
         topMouseVelocity: 0,
-        clickButtonRatio: 0
+
     };
 
     const assessGoals = () => {
@@ -94,7 +101,18 @@ export default (callback) => {
     });
 
     // Measure: Number of key presses
-    addEventListener('keyup', () => { state.keyPresses++; update(); });
+    let keysPressed = [];
+    addEventListener('keyup', (evt) => {
+
+        if(!keysPressed.includes(evt.code))
+        {
+            keysPressed.push(evt.code);
+        }
+
+        state.keyPresses++;
+        state.uniqueKeyPresses = keysPressed.length;
+        update();
+    });
 
     let lastX = null;
     let lastY = null;
