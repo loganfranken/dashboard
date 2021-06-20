@@ -4,7 +4,8 @@ export default (callback) => {
         { measure: 'seconds', target: 10, description: '10 seconds on dashboard' },
         { measure: 'clicks', target: 20, description: '20 clicks' },
         { measure: 'keyPresses', target: 10, description: '10 keys pressed' },
-        { measure: 'mouseDistance', target: 1000, description: 'Mouse moved 1000 pixels' }
+        { measure: 'mouseDistance', target: 1000, description: 'Mouse moved 1000 pixels' },
+        { measure: 'topMouseVelocity', target: 10, description: 'Top mouse velocity of 10 p/s' }
     ];
 
     // Initial state
@@ -15,11 +16,8 @@ export default (callback) => {
         seconds: 0,
         clicks: 0,
         keyPresses: 0,
-        mouseDistance: 0
-
-        /*
-        velocity: 0,
-        */
+        mouseDistance: 0,
+        topMouseVelocity: 0
     };
 
     const assessGoals = () => {
@@ -72,28 +70,38 @@ export default (callback) => {
     // Measure: Number of key presses
     addEventListener('keyup', () => { state.keyPresses++; update(); });
 
-    // Measure: Mouse Distance
     let lastX = null;
     let lastY = null;
-    //let lastTime = null;
+    let lastTime = null;
     addEventListener('mousemove', (evt) => {
         
         const x = evt.x;
         const y = evt.y;
-        //const time = Date.now();
+        const time = Date.now();
 
         if(lastX !== null && lastY !== null)
         {
+            // Measure: Mouse Distance
             const distance = Math.sqrt(Math.pow(Math.abs(lastX - x), 2), Math.pow(Math.abs(lastY - y), 2));
             state.mouseDistance += distance;
 
-            //state.velocity = Math.sqrt(Math.pow(Math.abs(lastX - x), 2), Math.pow(Math.abs(lastY - y), 2)) / (time - lastTime);
+            if(lastTime !== null)
+            {
+                // Measure: Mouse Velocity
+                const mouseVelocity = distance / (time - lastTime);
+                if(mouseVelocity > state.topMouseVelocity)
+                {
+                    state.topMouseVelocity = mouseVelocity;
+                    console.log(state.topMouseVelocity);
+                }
+            }
+
             update();
         }
         
         lastX = x;
         lastY = y;
-        //lastTime = time;
+        lastTime = time;
     });
 
 }
