@@ -2,6 +2,7 @@ export default (callback) => {
 
     const goals = [
         { measure: 'seconds', target: 10, description: '10 seconds on dashboard' },
+        { measure: 'windowCloses', target: 1, description: '1 window closes' },
         { measure: 'windowResizePercentage', target:30, description: 'Change window size by 30 percent' },
         { measure: 'topMouseHoldLength', target: 10, description: 'Mouse held down 10 seconds' },
         { measure: 'uniqueKeyPresses', target: 10, description: '10 unique key presses' },
@@ -30,7 +31,8 @@ export default (callback) => {
         topMouseVelocity: 0,
         topMouseHoldLength: 0,
 
-        windowResizePercentage: 0
+        windowResizePercentage: 0,
+        windowCloses: 0
 
     };
 
@@ -183,5 +185,8 @@ export default (callback) => {
         update();
 
     });
+
+    // Measure: Window closes
+    addEventListener('beforeunload', () => { state.windowCloses++; update(); });
 
 }

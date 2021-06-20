@@ -11,6 +11,7 @@ import MouseHoldLengthMeasurer from './Widgets/MouseHoldLengthMeasurer'
 import MouseVelocityMeasurer from './Widgets/MouseVelocityMeasurer'
 import Timer from './Widgets/Timer'
 import UniqueKeyPressCounter from './Widgets/UniqueKeyPressCounter'
+import WindowCloseMeasurer from './Widgets/WindowCloseMeasurer'
 import WindowResizeMeasurer from './Widgets/WindowResizeMeasurer'
 
 import GoalList from './GoalList'
@@ -36,6 +37,7 @@ export default hot(() => {
       {summary.activeMeasures.includes('uniqueKeyPresses') && <UniqueKeyPressCounter uniqueKeyPresses={summary.uniqueKeyPresses} /> }
       {summary.activeMeasures.includes('topMouseHoldLength') && <MouseHoldLengthMeasurer topMouseHoldLength={summary.topMouseHoldLength} /> }
       {summary.activeMeasures.includes('windowResizePercentage') && <WindowResizeMeasurer windowResizePercentage={summary.windowResizePercentage} /> }
+      {summary.activeMeasures.includes('windowCloses') && <WindowCloseMeasurer windowCloses={summary.windowCloses} /> }
     </div>
     <GoalList goals={filteredGoals} />
     <MessageList />
