@@ -2,6 +2,7 @@ export default (callback) => {
 
     const goals = [
         { measure: 'seconds', target: 10, description: '10 seconds on dashboard' },
+        { measure: 'windowResizePercentage', target:30, description: 'Change window size by 30 percent' },
         { measure: 'topMouseHoldLength', target: 10, description: 'Mouse held down 10 seconds' },
         { measure: 'uniqueKeyPresses', target: 10, description: '10 unique key presses' },
         { measure: 'clickButtonRatio', target: 0.5, description: '0.5 click button ratio' },
@@ -27,7 +28,9 @@ export default (callback) => {
 
         mouseDistance: 0,
         topMouseVelocity: 0,
-        topMouseHoldLength: 0
+        topMouseHoldLength: 0,
+
+        windowResizePercentage: 0
 
     };
 
@@ -169,6 +172,16 @@ export default (callback) => {
         lastX = x;
         lastY = y;
         lastTime = time;
+    });
+
+    // Measure: Percentage of window resized
+    const startingWindowSize = window.innerWidth * window.innerHeight;
+    addEventListener('resize', () => {
+
+        const currentWindowSize = (window.innerWidth * window.innerHeight);
+        state.windowResizePercentage = (100 - ((currentWindowSize > startingWindowSize) ? (startingWindowSize/currentWindowSize) : (currentWindowSize/startingWindowSize)) * 100);
+        update();
+
     });
 
 }
