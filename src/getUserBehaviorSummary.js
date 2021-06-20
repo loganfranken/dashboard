@@ -2,6 +2,7 @@ export default (callback) => {
 
     const goals = [
         { measure: 'seconds', target: 10, description: '10 seconds on dashboard' },
+        { measure: 'clickButtonRatio', target: 0.5, description: '0.5 click button ratio' },
         { measure: 'clicks', target: 20, description: '20 clicks' },
         { measure: 'keyPresses', target: 10, description: '10 keys pressed' },
         { measure: 'mouseDistance', target: 1000, description: 'Mouse moved 1000 pixels' },
@@ -17,7 +18,8 @@ export default (callback) => {
         clicks: 0,
         keyPresses: 0,
         mouseDistance: 0,
-        topMouseVelocity: 0
+        topMouseVelocity: 0,
+        clickButtonRatio: 0
     };
 
     const assessGoals = () => {
@@ -65,7 +67,31 @@ export default (callback) => {
     setInterval(() => { state.seconds++; update(); }, 1000);
 
     // Measure: Number of times user has clicked
-    addEventListener('click', () => { state.clicks++; update(); });
+    let leftClicks = 0;
+    let rightClicks = 0;
+    oncontextmenu = (evt) => { evt.preventDefault(); };
+    addEventListener('mousedown', (evt) => {
+
+        switch(evt.button)
+        {
+            case 0:
+                leftClicks++;
+                break;
+
+            case 2:
+                rightClicks++;
+                break;
+        }
+
+        state.clickButtonRatio =    (leftClicks === 0 && rightClicks === 0)
+                                        ? 0
+                                        : (leftClicks > rightClicks)
+                                            ? (rightClicks/leftClicks)
+                                            : (leftClicks/rightClicks);
+        state.clicks++;
+        update();
+
+    });
 
     // Measure: Number of key presses
     addEventListener('keyup', () => { state.keyPresses++; update(); });
@@ -92,7 +118,6 @@ export default (callback) => {
                 if(mouseVelocity > state.topMouseVelocity)
                 {
                     state.topMouseVelocity = mouseVelocity;
-                    console.log(state.topMouseVelocity);
                 }
             }
 

@@ -4,6 +4,7 @@ import { hot } from 'react-hot-loader/root'
 import getUserBehaviorSummary from '!./getUserBehaviorSummary'
 
 import ClickCounter from './Widgets/ClickCounter'
+import ClickButtonRatioMeasurer from './Widgets/ClickButtonRatioMeasurer'
 import KeyPressCounter from './Widgets/KeyPressCounter'
 import MouseDistanceMeasurer from './Widgets/MouseDistanceMeasurer'
 import MouseVelocityMeasurer from './Widgets/MouseVelocityMeasurer'
@@ -28,6 +29,7 @@ export default hot(() => {
       {summary.activeMeasures.includes('keyPresses') && <KeyPressCounter keyPresses={summary.keyPresses} /> }
       {summary.activeMeasures.includes('mouseDistance') && <MouseDistanceMeasurer mouseDistance={summary.mouseDistance} /> }
       {summary.activeMeasures.includes('topMouseVelocity') && <MouseVelocityMeasurer topMouseVelocity={summary.topMouseVelocity} /> }
+      {summary.activeMeasures.includes('clickButtonRatio') && <ClickButtonRatioMeasurer clickButtonRatio={summary.clickButtonRatio} /> }
     </div>
     <GoalList goals={filteredGoals} />
     <MessageList />
