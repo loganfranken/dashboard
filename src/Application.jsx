@@ -8,6 +8,7 @@ import LocationWidget from './Widgets/LocationWidget'
 import TimerWidget from './Widgets/TimerWidget'
 import VelocityWidget from './Widgets/VelocityWidget'
 
+import GoalList from './Widgets/GoalList'
 import Widget from './Widgets/Widget'
 
 export default hot(() => {
@@ -15,8 +16,13 @@ export default hot(() => {
   const [summary, updateUserBehaviorSummary] = useState(getUserBehaviorSummary());
   useEffect(() => { getUserBehaviorSummary(updateUserBehaviorSummary); }, []);
 
-  return <div className="widget-container">
-    <Widget />
+  return <div className="dashboard">
+    <div className="widget-container">
+     <Widget />
+    </div>
+    <div className="sidebar">
+      <GoalList />
+    </div>
     {/*
     <ClickCounterWidget clicks={summary.clicks} />
     <TimerWidget seconds={summary.seconds} />

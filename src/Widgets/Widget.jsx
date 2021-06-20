@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default ({ velocity }) => <div class="widget">
-    <span class="title">Time on Dashboard</span>
+export default () => <div className="panel widget">
+    <h2>Time on Dashboard</h2>
     <span class="value">0</span>
 </div>

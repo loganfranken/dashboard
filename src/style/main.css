@@ -6,30 +6,81 @@ html, body
     padding: 0;
 }
 
-.widget-container
+/* =DASHBOARD
+------------------------------------------------------- */
+
+.dashboard
 {
-    display: flex;
-    justify-content: center;
-    margin: 3em 1em;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    margin: 3em auto;
+    max-width: 80em;
 }
 
-.widget
+/* =PANEL
+------------------------------------------------------- */
+
+.panel
 {
     background: #FFF;
+    box-sizing: border-box;
     color: rgb(51, 51, 51);
     box-shadow: rgb(194, 194, 194) 0 3px 3px;
     padding: 1em;
     width: 12em;
 }
 
-.widget .title
+.panel h2
 {
+    font-size: 1em;
     font-weight: bold;
+    margin: 0;
 }
+
+/* =WIDGET
+------------------------------------------------------- */
 
 .widget .value
 {
     display: block;
     text-align: center;
     font-size: 9em;
+}
+
+/* =GOAL-LIST
+------------------------------------------------------- */
+
+.goal-container
+{
+    width: 100%;
+}
+
+.goal-container ul
+{
+    list-style: none;
+    margin: 2em 0 0;
+    padding: 0;
+}
+
+.goal-container li
+{
+    margin-bottom: 1em;
+}
+
+.goal-container li progress
+{
+    border-radius: 0;
+    display: block;
+    height: 5px;
+    width: 100%;
+}
+
+.goal-container li progress::-webkit-progress-value
+{
+    background-color: rgb(72, 156, 235);
+}
+
+.goal-container li progress::-webkit-progress-bar
+{
+    background-color: rgb(231, 231, 231);
 }
