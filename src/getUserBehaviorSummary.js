@@ -3,7 +3,8 @@ export default (callback) => {
     const goals = [
         { measure: 'seconds', target: 10, description: '10 seconds on dashboard' },
         { measure: 'clicks', target: 20, description: '20 clicks' },
-        { measure: 'keyPresses', target: 10, description: '10 keys pressed' }
+        { measure: 'keyPresses', target: 10, description: '10 keys pressed' },
+        { measure: 'mouseDistance', target: 1000, description: 'Mouse moved 1000 pixels' }
     ];
 
     // Initial state
@@ -14,6 +15,7 @@ export default (callback) => {
         seconds: 0,
         clicks: 0,
         keyPresses: 0,
+        mouseDistance: 0
 
         /*
         velocity: 0,
@@ -70,27 +72,28 @@ export default (callback) => {
     // Measure: Number of key presses
     addEventListener('keyup', () => { state.keyPresses++; update(); });
 
-    /*
-    // Measure: Mouse Velocity
+    // Measure: Mouse Distance
     let lastX = null;
     let lastY = null;
-    let lastTime = null;
+    //let lastTime = null;
     addEventListener('mousemove', (evt) => {
         
         const x = evt.x;
         const y = evt.y;
-        const time = Date.now();
+        //const time = Date.now();
 
-        if(lastX !== null && lastY !== null && lastTime !== null)
+        if(lastX !== null && lastY !== null)
         {
-            state.velocity = Math.sqrt(Math.pow(Math.abs(lastX - x), 2), Math.pow(Math.abs(lastY - y), 2)) / (time - lastTime);
+            const distance = Math.sqrt(Math.pow(Math.abs(lastX - x), 2), Math.pow(Math.abs(lastY - y), 2));
+            state.mouseDistance += distance;
+
+            //state.velocity = Math.sqrt(Math.pow(Math.abs(lastX - x), 2), Math.pow(Math.abs(lastY - y), 2)) / (time - lastTime);
             update();
         }
         
         lastX = x;
         lastY = y;
-        lastTime = time;
+        //lastTime = time;
     });
-    */
 
 }
