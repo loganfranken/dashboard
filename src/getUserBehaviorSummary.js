@@ -1,5 +1,6 @@
 export default (callback) => {
 
+    /*
     // Initial state
     let state = {
         seconds: 0,
@@ -41,5 +42,6 @@ export default (callback) => {
         lastY = y;
         lastTime = time;
     });
+    */
 
 }

@@ -8,16 +8,21 @@ import LocationWidget from './Widgets/LocationWidget'
 import TimerWidget from './Widgets/TimerWidget'
 import VelocityWidget from './Widgets/VelocityWidget'
 
+import Widget from './Widgets/Widget'
+
 export default hot(() => {
 
   const [summary, updateUserBehaviorSummary] = useState(getUserBehaviorSummary());
   useEffect(() => { getUserBehaviorSummary(updateUserBehaviorSummary); }, []);
 
-  return <React.Fragment>
+  return <div className="widget-container">
+    <Widget />
+    {/*
     <ClickCounterWidget clicks={summary.clicks} />
     <TimerWidget seconds={summary.seconds} />
     <LocationWidget location={summary.location} />
     <VelocityWidget velocity={summary.velocity} />
-  </React.Fragment>
+    */}
+  </div>
 
 });
