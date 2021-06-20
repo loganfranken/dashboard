@@ -43,6 +43,14 @@ html, body
 /* =WIDGET
 ------------------------------------------------------- */
 
+.widget-container
+{
+    display: grid;
+    gap: 1em;
+    grid-template-columns: 12em 12em 12em;
+    grid-template-rows: 15em 15em;
+}
+
 .widget
 {
     padding-bottom: 1.5em;

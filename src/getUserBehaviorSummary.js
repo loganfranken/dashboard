@@ -1,7 +1,7 @@
 export default (callback) => {
 
     const goals = [
-        { measure: 'seconds', target: 30, description: '30 seconds on dashboard' },
+        { measure: 'seconds', target: 10, description: '10 seconds on dashboard' },
         { measure: 'clicks', target: 20, description: '20 clicks' }
     ];
 
@@ -64,13 +64,10 @@ export default (callback) => {
     // Measure: Number of seconds user has spent on dashboard
     setInterval(() => { state.seconds++; update(); }, 1000);
 
-    /*
     // Measure: Number of times user has clicked
     addEventListener('click', () => { state.clicks++; update(); });
 
-    // Measure: Current location
-    navigator.geolocation.getCurrentPosition(({ coords }) => { state.location = coords; update(); }, () => {});
-
+    /*
     // Measure: Mouse Velocity
     let lastX = null;
     let lastY = null;
