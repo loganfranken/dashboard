@@ -9,6 +9,7 @@ import TimerWidget from './Widgets/TimerWidget'
 import VelocityWidget from './Widgets/VelocityWidget'
 
 import GoalList from './Widgets/GoalList'
+import MessageList from './Widgets/MessageList'
 import Widget from './Widgets/Widget'
 
 export default hot(() => {
@@ -20,9 +21,8 @@ export default hot(() => {
     <div className="widget-container">
      <Widget />
     </div>
-    <div className="sidebar">
-      <GoalList />
-    </div>
+    <GoalList />
+    <MessageList />
     {/*
     <ClickCounterWidget clicks={summary.clicks} />
     <TimerWidget seconds={summary.seconds} />

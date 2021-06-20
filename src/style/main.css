@@ -12,7 +12,10 @@ html, body
 .dashboard
 {
     display: grid;
-    grid-template-columns: 80% 20%;
+    gap: 1em;
+    grid-template:  "widgets goals"
+                    "widgets messages"
+                    / 80% 20%;
     margin: 3em auto;
     max-width: 80em;
 }
@@ -47,27 +50,36 @@ html, body
     font-size: 9em;
 }
 
-/* =GOAL-LIST
+/* =INFO-PANELS
 ------------------------------------------------------- */
 
-.goal-container
+.info-panel
 {
     width: 100%;
 }
 
-.goal-container ul
+.info-panel ul
 {
     list-style: none;
     margin: 2em 0 0;
     padding: 0;
 }
 
-.goal-container li
+.info-panel li
 {
     margin-bottom: 1em;
 }
 
-.goal-container li progress
+/* =GOALS
+------------------------------------------------------- */
+
+.goal-panel
+{
+    grid-area: goals;
+    height: 40em;
+}
+
+.goal-list li progress
 {
     border-radius: 0;
     display: block;
@@ -75,12 +87,20 @@ html, body
     width: 100%;
 }
 
-.goal-container li progress::-webkit-progress-value
+.goal-list li progress::-webkit-progress-value
 {
     background-color: rgb(72, 156, 235);
 }
 
-.goal-container li progress::-webkit-progress-bar
+.goal-list li progress::-webkit-progress-bar
 {
     background-color: rgb(231, 231, 231);
+}
+
+/* =MESSAGES
+------------------------------------------------------- */
+
+.message-panel
+{
+    grid-area: messages;
 }
