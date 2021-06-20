@@ -2,6 +2,7 @@ export default (callback) => {
 
     const goals = [
         { measure: 'seconds', target: 10, description: '10 seconds on dashboard' },
+        { measure: 'topMouseHoldLength', target: 10, description: 'Mouse held down 10 seconds' },
         { measure: 'uniqueKeyPresses', target: 10, description: '10 unique key presses' },
         { measure: 'clickButtonRatio', target: 0.5, description: '0.5 click button ratio' },
         { measure: 'clicks', target: 20, description: '20 clicks' },
@@ -26,6 +27,7 @@ export default (callback) => {
 
         mouseDistance: 0,
         topMouseVelocity: 0,
+        topMouseHoldLength: 0
 
     };
 
@@ -73,11 +75,13 @@ export default (callback) => {
     // Measure: Number of seconds user has spent on dashboard
     setInterval(() => { state.seconds++; update(); }, 1000);
 
-    // Measure: Number of times user has clicked
     let leftClicks = 0;
     let rightClicks = 0;
+    let mouseDownTime = null;
     oncontextmenu = (evt) => { evt.preventDefault(); };
     addEventListener('mousedown', (evt) => {
+
+        mouseDownTime = Date.now();
 
         switch(evt.button)
         {
@@ -90,14 +94,34 @@ export default (callback) => {
                 break;
         }
 
+        // Measure: Click button ratio
         state.clickButtonRatio =    (leftClicks === 0 && rightClicks === 0)
                                         ? 0
                                         : (leftClicks > rightClicks)
                                             ? (rightClicks/leftClicks)
                                             : (leftClicks/rightClicks);
+        
+        // Measure: Number of times user has clicked
         state.clicks++;
+
         update();
 
+    });
+
+    addEventListener('mouseup', () => {
+
+        if(mouseDownTime !== null)
+        {
+            const mouseHoldLength = ((Date.now() - mouseDownTime) / 1000);
+
+            if(mouseHoldLength > state.topMouseHoldLength)
+            {
+                state.topMouseHoldLength = mouseHoldLength;
+            }
+        }
+
+        update();
+    
     });
 
     // Measure: Number of key presses

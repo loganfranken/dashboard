@@ -7,6 +7,7 @@ import ClickCounter from './Widgets/ClickCounter'
 import ClickButtonRatioMeasurer from './Widgets/ClickButtonRatioMeasurer'
 import KeyPressCounter from './Widgets/KeyPressCounter'
 import MouseDistanceMeasurer from './Widgets/MouseDistanceMeasurer'
+import MouseHoldLengthMeasurer from './Widgets/MouseHoldLengthMeasurer'
 import MouseVelocityMeasurer from './Widgets/MouseVelocityMeasurer'
 import Timer from './Widgets/Timer'
 import UniqueKeyPressCounter from './Widgets/UniqueKeyPressCounter'
@@ -32,6 +33,7 @@ export default hot(() => {
       {summary.activeMeasures.includes('topMouseVelocity') && <MouseVelocityMeasurer topMouseVelocity={summary.topMouseVelocity} /> }
       {summary.activeMeasures.includes('clickButtonRatio') && <ClickButtonRatioMeasurer clickButtonRatio={summary.clickButtonRatio} /> }
       {summary.activeMeasures.includes('uniqueKeyPresses') && <UniqueKeyPressCounter uniqueKeyPresses={summary.uniqueKeyPresses} /> }
+      {summary.activeMeasures.includes('topMouseHoldLength') && <MouseHoldLengthMeasurer topMouseHoldLength={summary.topMouseHoldLength} /> }
     </div>
     <GoalList goals={filteredGoals} />
     <MessageList />
