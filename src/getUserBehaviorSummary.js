@@ -1,13 +1,14 @@
 export default (callback) => {
 
     const goals = [
-        { measure: 'seconds', target: 10, description: '10 seconds on dashboard' },
+        { measure: 'seconds', target: 15, description: '15 seconds on dashboard' },
+        { measure: 'clicks', target: 20, description: '20 clicks' },
+
         { measure: 'windowCloses', target: 1, description: '1 window closes' },
         { measure: 'windowResizePercentage', target:30, description: 'Change window size by 30 percent' },
         { measure: 'topMouseHoldLength', target: 10, description: 'Mouse held down 10 seconds' },
         { measure: 'uniqueKeyPresses', target: 10, description: '10 unique key presses' },
         { measure: 'clickButtonRatio', target: 0.5, description: '0.5 click button ratio' },
-        { measure: 'clicks', target: 20, description: '20 clicks' },
         { measure: 'keyPresses', target: 10, description: '10 keys pressed' },
         { measure: 'mouseDistance', target: 1000, description: 'Mouse moved 1000 pixels' },
         { measure: 'topMouseVelocity', target: 10, description: 'Top mouse velocity of 10 p/s' }
@@ -64,6 +65,7 @@ export default (callback) => {
             if(goal.currentPercentage >= 100)
             {
                 goal.isComplete = true;
+                continue;
             }
 
             break;
