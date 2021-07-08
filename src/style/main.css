@@ -138,6 +138,21 @@ html, body
 {
     grid-area: goals;
     height: 40em;
+    overflow: hidden;
+    position: relative;
+}
+
+.goal-panel::after
+{
+    background: #FFF;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 70%);
+    bottom: 0;
+    content: '';
+    display: block;
+    height: 5em;
+    left: 0;
+    position: absolute;
+    width: 100%;
 }
 
 .goal-title

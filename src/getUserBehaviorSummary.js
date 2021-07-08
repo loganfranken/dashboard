@@ -129,7 +129,6 @@ export default (callback) => {
 
     const updateMouseHoldLength = () => {
 
-        console.log('updateMouseHoldLength');
         if(mouseDownTime !== null)
         {
             const mouseHoldLength = ((Date.now() - mouseDownTime) / 1000);
