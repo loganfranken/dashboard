@@ -31,15 +31,40 @@ export default (callback) => {
         { measure: 'mouseHoldLength', target: 10, description: '10 second mouse hold' },
         { measure: 'seconds', target: 300, description: '5 minutes on dashboard' },
         { measure: 'clicks', target: 100, description: '100 clicks' },
+
+        // 6
+        { measure: 'mouseVelocity', target: 10, description: 'Mouse velocity of 10 p/s' },
+        { measure: 'uniqueKeyPresses', target: 30, description: '30 unique key presses' },
+        { measure: 'mouseDistance', target: 3000, description: 'Mouse moved 3000 pixels' },
+        { measure: 'keyPresses', target: 40, description: '40 keys pressed' },
+        { measure: 'mouseHoldLength', target: 15, description: '15 second mouse hold' },
+        { measure: 'seconds', target: 420, description: '7 minutes on dashboard' },
+        { measure: 'clicks', target: 200, description: '200 clicks' },
+
+        // 7
+        { measure: 'windowResizePercentage', target: 30, description: 'Change window size by 30 percent' },
+        { measure: 'mouseVelocity', target: 20, description: 'Mouse velocity of 20 p/s' },
+        { measure: 'uniqueKeyPresses', target: 40, description: '40 unique key presses' },
+        { measure: 'mouseDistance', target: 5000, description: 'Mouse moved 5000 pixels' },
+        { measure: 'keyPresses', target: 50, description: '50 keys pressed' },
+        { measure: 'mouseHoldLength', target: 20, description: '20 second mouse hold' },
+        { measure: 'seconds', target: 540, description: '9 minutes on dashboard' },
+        { measure: 'clicks', target: 300, description: '300 clicks' },
+
+        // 8
+        { measure: 'clickButtonRatio', target: 0.3, description: '0.3 click button ratio' },
+        { measure: 'windowResizePercentage', target: 60, description: 'Change window size by 60 percent' },
+        { measure: 'mouseVelocity', target: 30, description: 'Mouse velocity of 30 p/s' },
+        { measure: 'uniqueKeyPresses', target: 50, description: '50 unique key presses' },
+        { measure: 'mouseDistance', target: 6000, description: 'Mouse moved 6000 pixels' },
+        { measure: 'keyPresses', target: 60, description: '60 keys pressed' },
+        { measure: 'mouseHoldLength', target: 30, description: '30 second mouse hold' },
+        { measure: 'seconds', target: 600, description: '10 minutes on dashboard' },
+        { measure: 'clicks', target: 400, description: '400 clicks' },
         
-
-        // ...
-        // { measure: 'clickButtonRatio', target: 0.5, description: '0.5 click button ratio' },
-
-        // { measure: 'topMouseVelocity', target: 10, description: 'Top mouse velocity of 10 p/s' }
-
-        // { measure: 'windowResizePercentage', target:30, description: 'Change window size by 30 percent' },
-        // { measure: 'windowCloses', target: 1, description: '1 window closes' },
+        // 9
+        { measure: 'windowCloses', target: 1, description: '1 window closes' }
+        
     ];
 
     // Initial state
@@ -57,7 +82,7 @@ export default (callback) => {
         uniqueKeyPresses: 0,
 
         mouseDistance: 0,
-        topMouseVelocity: 0,
+        mouseVelocity: 0,
         mouseHoldLength: 0,
 
         windowResizePercentage: 0,
@@ -141,7 +166,7 @@ export default (callback) => {
         if(mouseDownTime !== null)
         {
             const mouseHoldLength = ((Date.now() - mouseDownTime) / 1000);
-            state.mouseHoldLength = mouseHoldLength.toFixed(1);
+            state.mouseHoldLength = mouseHoldLength;
         }
 
         update();
@@ -221,11 +246,7 @@ export default (callback) => {
             if(lastTime !== null)
             {
                 // Measure: Mouse Velocity
-                const mouseVelocity = distance / (time - lastTime);
-                if(mouseVelocity > state.topMouseVelocity)
-                {
-                    state.topMouseVelocity = mouseVelocity;
-                }
+                state.mouseVelocity = distance / (time - lastTime);
             }
 
             update();
