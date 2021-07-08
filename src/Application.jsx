@@ -28,12 +28,13 @@ export default hot(() => {
     <div className="widget-container">
       {summary.activeMeasures.includes('seconds') && <Timer seconds={summary.seconds} /> }
       {summary.activeMeasures.includes('clicks') && <ClickCounter clicks={summary.clicks} /> }
+      {summary.activeMeasures.includes('mouseHoldLength') && <MouseHoldLengthMeasurer mouseHoldLength={summary.mouseHoldLength} /> }
       {summary.activeMeasures.includes('keyPresses') && <KeyPressCounter keyPresses={summary.keyPresses} /> }
       {summary.activeMeasures.includes('mouseDistance') && <MouseDistanceMeasurer mouseDistance={summary.mouseDistance} /> }
+      
       {summary.activeMeasures.includes('topMouseVelocity') && <MouseVelocityMeasurer topMouseVelocity={summary.topMouseVelocity} /> }
       {summary.activeMeasures.includes('clickButtonRatio') && <ClickButtonRatioMeasurer clickButtonRatio={summary.clickButtonRatio} /> }
       {summary.activeMeasures.includes('uniqueKeyPresses') && <UniqueKeyPressCounter uniqueKeyPresses={summary.uniqueKeyPresses} /> }
-      {summary.activeMeasures.includes('mouseHoldLength') && <MouseHoldLengthMeasurer mouseHoldLength={summary.mouseHoldLength} /> }
       {summary.activeMeasures.includes('windowResizePercentage') && <WindowResizeMeasurer windowResizePercentage={summary.windowResizePercentage} /> }
       {summary.activeMeasures.includes('windowCloses') && <WindowCloseMeasurer windowCloses={summary.windowCloses} /> }
     </div>

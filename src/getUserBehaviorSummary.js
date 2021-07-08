@@ -17,13 +17,19 @@ export default (callback) => {
         { measure: 'seconds', target: 60, description: '1 minute on dashboard' },
         { measure: 'clicks', target: 50, description: '50 clicks' },
 
+        // 4
+        { measure: 'mouseDistance', target: 1000, description: 'Mouse moved 1000 pixels' },
+        { measure: 'keyPresses', target: 20, description: '20 keys pressed' },
+        { measure: 'mouseHoldLength', target: 10, description: '15 second mouse hold' },
+        { measure: 'seconds', target: 120, description: '2 minutes on dashboard' },
+        { measure: 'clicks', target: 70, description: '70 clicks' },
+        
+
         // ...
+        // { measure: 'clickButtonRatio', target: 0.5, description: '0.5 click button ratio' },
         // { measure: 'windowCloses', target: 1, description: '1 window closes' },
         // { measure: 'windowResizePercentage', target:30, description: 'Change window size by 30 percent' },
         // { measure: 'uniqueKeyPresses', target: 10, description: '10 unique key presses' },
-        // { measure: 'clickButtonRatio', target: 0.5, description: '0.5 click button ratio' },
-        // ,
-        // { measure: 'mouseDistance', target: 1000, description: 'Mouse moved 1000 pixels' },
         // { measure: 'topMouseVelocity', target: 10, description: 'Top mouse velocity of 10 p/s' }
     ];
 
