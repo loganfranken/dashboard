@@ -7,7 +7,7 @@ export default (callback) => {
         { measure: 'clicks', target: 20, description: '20 clicks' },
 
         // 2
-        { measure: 'topMouseHoldLength', target: 10, description: 'Mouse held down 10 seconds' },
+        { measure: 'mouseHoldLength', target: 10, description: '10 second mouse hold' },
         { measure: 'seconds', target: 60, description: '60 seconds on dashboard' },
         { measure: 'clicks', target: 100, description: '100 clicks' },
 
@@ -36,7 +36,7 @@ export default (callback) => {
 
         mouseDistance: 0,
         topMouseVelocity: 0,
-        topMouseHoldLength: 0,
+        mouseHoldLength: 0,
 
         windowResizePercentage: 0,
         windowCloses: 0
@@ -110,10 +110,27 @@ export default (callback) => {
     // Measure: Number of seconds user has spent on dashboard
     setInterval(() => { state.seconds++; update(); }, 1000);
 
+    // Measure: How long the mouse has been held down
+    let mouseDownTime = null;
+    let mouseDownInterval = null;
+
+    const updateMouseHoldLength = () => {
+
+        console.log('updateMouseHoldLength');
+        if(mouseDownTime !== null)
+        {
+            const mouseHoldLength = ((Date.now() - mouseDownTime) / 1000);
+            state.mouseHoldLength = mouseHoldLength.toFixed(1);
+        }
+
+        update();
+
+    };
+
     let leftClicks = 0;
     let rightClicks = 0;
-    let mouseDownTime = null;
     oncontextmenu = (evt) => { evt.preventDefault(); };
+
     addEventListener('mousedown', (evt) => {
 
         mouseDownTime = Date.now();
@@ -128,6 +145,8 @@ export default (callback) => {
                 rightClicks++;
                 break;
         }
+
+        mouseDownInterval = setInterval(updateMouseHoldLength, 100);
 
         // Measure: Click button ratio
         state.clickButtonRatio =    (leftClicks === 0 && rightClicks === 0)
@@ -144,19 +163,9 @@ export default (callback) => {
     });
 
     addEventListener('mouseup', () => {
-
-        if(mouseDownTime !== null)
-        {
-            const mouseHoldLength = ((Date.now() - mouseDownTime) / 1000);
-
-            if(mouseHoldLength > state.topMouseHoldLength)
-            {
-                state.topMouseHoldLength = mouseHoldLength;
-            }
-        }
-
-        update();
-    
+        updateMouseHoldLength();
+        clearInterval(mouseDownInterval);
+        mouseDownInterval = null;
     });
 
     // Measure: Number of key presses

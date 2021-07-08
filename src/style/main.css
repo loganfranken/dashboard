@@ -91,6 +91,11 @@ html, body
     font-size: 9em;
 }
 
+.widget .value.big-value
+{
+    font-size: 8em;
+}
+
 .widget .measurement
 {
     color: rgb(128, 128, 128);
