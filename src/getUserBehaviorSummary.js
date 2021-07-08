@@ -3,21 +3,28 @@ export default (callback) => {
     const goals = [
 
         // 1
-        { measure: 'seconds', target: 15, description: '15 seconds on dashboard' },
-        { measure: 'clicks', target: 20, description: '20 clicks' },
+        { measure: 'seconds', target: 10, description: '10 seconds on dashboard' },
+        { measure: 'clicks', target: 10, description: '10 clicks' },
 
         // 2
-        { measure: 'mouseHoldLength', target: 10, description: '10 second mouse hold' },
-        { measure: 'seconds', target: 60, description: '60 seconds on dashboard' },
-        { measure: 'clicks', target: 100, description: '100 clicks' },
+        { measure: 'mouseHoldLength', target: 5, description: '5 second mouse hold' },
+        { measure: 'seconds', target: 30, description: '30 seconds on dashboard' },
+        { measure: 'clicks', target: 30, description: '30 clicks' },
 
-        { measure: 'windowCloses', target: 1, description: '1 window closes' },
-        { measure: 'windowResizePercentage', target:30, description: 'Change window size by 30 percent' },
-        { measure: 'uniqueKeyPresses', target: 10, description: '10 unique key presses' },
-        { measure: 'clickButtonRatio', target: 0.5, description: '0.5 click button ratio' },
+        // 3
         { measure: 'keyPresses', target: 10, description: '10 keys pressed' },
-        { measure: 'mouseDistance', target: 1000, description: 'Mouse moved 1000 pixels' },
-        { measure: 'topMouseVelocity', target: 10, description: 'Top mouse velocity of 10 p/s' }
+        { measure: 'mouseHoldLength', target: 10, description: '10 second mouse hold' },
+        { measure: 'seconds', target: 60, description: '1 minute on dashboard' },
+        { measure: 'clicks', target: 50, description: '50 clicks' },
+
+        // ...
+        // { measure: 'windowCloses', target: 1, description: '1 window closes' },
+        // { measure: 'windowResizePercentage', target:30, description: 'Change window size by 30 percent' },
+        // { measure: 'uniqueKeyPresses', target: 10, description: '10 unique key presses' },
+        // { measure: 'clickButtonRatio', target: 0.5, description: '0.5 click button ratio' },
+        // ,
+        // { measure: 'mouseDistance', target: 1000, description: 'Mouse moved 1000 pixels' },
+        // { measure: 'topMouseVelocity', target: 10, description: 'Top mouse velocity of 10 p/s' }
     ];
 
     // Initial state
