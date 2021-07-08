@@ -1,12 +1,18 @@
 export default (callback) => {
 
     const goals = [
+
+        // 1
         { measure: 'seconds', target: 15, description: '15 seconds on dashboard' },
         { measure: 'clicks', target: 20, description: '20 clicks' },
 
+        // 2
+        { measure: 'topMouseHoldLength', target: 10, description: 'Mouse held down 10 seconds' },
+        { measure: 'seconds', target: 60, description: '60 seconds on dashboard' },
+        { measure: 'clicks', target: 100, description: '100 clicks' },
+
         { measure: 'windowCloses', target: 1, description: '1 window closes' },
         { measure: 'windowResizePercentage', target:30, description: 'Change window size by 30 percent' },
-        { measure: 'topMouseHoldLength', target: 10, description: 'Mouse held down 10 seconds' },
         { measure: 'uniqueKeyPresses', target: 10, description: '10 unique key presses' },
         { measure: 'clickButtonRatio', target: 0.5, description: '0.5 click button ratio' },
         { measure: 'keyPresses', target: 10, description: '10 keys pressed' },
@@ -39,13 +45,18 @@ export default (callback) => {
 
     const assessGoals = () => {
 
-        // We're going to loop through and evaluate the latest
-        // incomplete goal, creating a list of currently active
-        // measures along the way
+        // We're going to loop through the goals until we reach
+        // the first incomplete goal of a measure different than
+        // all of the existing completed goals, evaluating all
+        // incomplete goals along the way
+
         const activeMeasures = [];
+        const completedMeasures = [];
+
         for(let i = 0; i < goals.length; i++)
         {
             const goal = goals[i];
+            goal.isActive = true;
 
             // Create a list of all currently active measures
             if(!activeMeasures.includes(goal.measure))
@@ -55,11 +66,15 @@ export default (callback) => {
 
             if(goal.isComplete)
             {
+                if(!completedMeasures.includes(goal.measure))
+                {
+                    completedMeasures.push(goal.measure);
+                }
+
                 continue;
             }
 
-            // We've found the latest incomplete goal, so let's
-            // evaluate it
+            // We've found an incomplete goal, so let's evaluate it
             goal.currentPercentage = ((state[goal.measure] / goal.target) * 100);
 
             if(goal.currentPercentage >= 100)
@@ -68,6 +83,19 @@ export default (callback) => {
                 continue;
             }
 
+            if(i < goals.length - 1)
+            {
+                // If the next goal is of a measure we've already completed,
+                // let's go ahead and loop forward to grab it
+                const nextGoal = goals[i + 1];
+                if(completedMeasures.includes(nextGoal.measure))
+                {
+                    continue;
+                }
+            }
+
+            // Otherwise, let's wait until the user completes the current
+            // measure before unlocking the next goal
             break;
         }
 
