@@ -22,7 +22,7 @@ export default hot(() => {
   useEffect(() => { getUserBehaviorSummary(updateUserBehaviorSummary); }, []);
 
   // Filter down the goals to include the completed ones and one incomplete one
-  const filteredGoals = summary.goals.filter(goal => goal.isActive);
+  const filteredGoals = summary.goals.filter(goal => goal.isActive).reverse();
 
   return <div className="dashboard">
     <div className="widget-container">

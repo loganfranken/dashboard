@@ -93,7 +93,8 @@ html, body
 
 .widget .value.big-value
 {
-    font-size: 8em;
+    font-size: 7em;
+    margin: 0.2em 0;
 }
 
 .widget .measurement
