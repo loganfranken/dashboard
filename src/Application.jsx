@@ -15,7 +15,6 @@ import WindowCloseMeasurer from './Widgets/WindowCloseMeasurer'
 import WindowResizeMeasurer from './Widgets/WindowResizeMeasurer'
 
 import GoalList from './GoalList'
-import MessageList from './MessageList'
 
 export default hot(() => {
 
@@ -40,7 +39,6 @@ export default hot(() => {
       {summary.activeMeasures.includes('windowCloses') && <WindowCloseMeasurer windowCloses={summary.windowCloses} /> }
     </div>
     <GoalList goals={filteredGoals} />
-    <MessageList />
   </div>
 
 });

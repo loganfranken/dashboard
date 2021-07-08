@@ -6,6 +6,21 @@ html, body
     padding: 0;
 }
 
+/* =ANIMATION
+------------------------------------------------------- */
+
+@keyframes widget-fade-in
+{
+    0%   { opacity: 0; transform: scale(1.2, 1.2); }
+    100% { opacity: 1; transform: scale(1, 1); }
+}
+
+@keyframes goal-fade-in
+{
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+
 /* =DASHBOARD
 ------------------------------------------------------- */
 
@@ -14,7 +29,6 @@ html, body
     display: grid;
     gap: 1em;
     grid-template:  "widgets goals"
-                    "widgets messages"
                     / 80% 20%;
     margin: 3em auto;
     max-width: 80em;
@@ -53,7 +67,14 @@ html, body
 
 .widget
 {
+    animation-name: widget-fade-in;
+    animation-duration: 0.5s;
     padding-bottom: 1.5em;
+}
+
+.widget h2
+{
+    text-align: center;
 }
 
 .widget .value
@@ -113,6 +134,18 @@ html, body
     margin-bottom: 0.3em;
 }
 
+.goal-list li
+{
+    animation-name: goal-fade-in;
+    animation-duration: 0.5s;
+    transition: opacity 0.5s;
+}
+
+.goal-list li.complete
+{
+    opacity: 0.2;
+}
+
 .goal-list li progress
 {
     border-radius: 0;
@@ -130,12 +163,4 @@ html, body
 .goal-list li progress::-webkit-progress-bar
 {
     background-color: rgb(231, 231, 231);
-}
-
-/* =MESSAGES
-------------------------------------------------------- */
-
-.message-panel
-{
-    grid-area: messages;
 }
