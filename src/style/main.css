@@ -68,7 +68,7 @@ html, body
 {
     display: grid;
     gap: 1em;
-    grid-template-columns: 12em 12em 12em;
+    grid-template-columns: repeat(auto-fit, 12em);
     grid-template-rows: 15em 15em;
 }
 
