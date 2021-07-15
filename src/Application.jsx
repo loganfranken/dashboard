@@ -19,13 +19,13 @@ export default hot(() => {
   const [summary, updateUserBehaviorSummary] = useState(getUserBehaviorSummary());
   useEffect(() => { getUserBehaviorSummary(updateUserBehaviorSummary); }, []);
 
-  const completedGoals = summary.goals.filter(goal => goal.isComplete);
-  const isSecondsComplete = completedGoals.some(g => g.measure === 'seconds');
+  const secondsGoal = summary.goals.filter(goal => goal.measure === 'seconds')[0];
+  const clicksGoal = summary.goals.filter(goal => goal.measure === 'clicks')[0];
 
   return <div className="dashboard">
     <div className="widget-container">
-      {summary.activeMeasures.includes('seconds') && <Timer seconds={summary.seconds} isComplete={isSecondsComplete} /> }
-      {summary.activeMeasures.includes('clicks') && <ClickCounter clicks={summary.clicks} /> }
+      {summary.activeMeasures.includes('seconds') && <Timer seconds={summary.seconds} isComplete={secondsGoal.isComplete} /> }
+      {summary.activeMeasures.includes('clicks') && <ClickCounter clicks={summary.clicks} target={clicksGoal.target} isComplete={clicksGoal.isComplete} /> }
       {summary.activeMeasures.includes('mouseHoldLength') && <MouseHoldLengthMeasurer mouseHoldLength={summary.mouseHoldLength} /> }
       {summary.activeMeasures.includes('keyPresses') && <KeyPressCounter keyPresses={summary.keyPresses} /> }
       {summary.activeMeasures.includes('mouseDistance') && <MouseDistanceMeasurer mouseDistance={summary.mouseDistance} /> }
