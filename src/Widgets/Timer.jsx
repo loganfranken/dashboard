@@ -4,37 +4,18 @@ import Widget from './Widget'
 
 export default ({ seconds }) => {
 
-    let value = 0;
-    let measurement = 'seconds';
+    const radius = 30;
+    const buffer = 45;
 
-    if(typeof seconds !== 'undefined' && seconds !== null)
-    {
-        if(seconds > 86400)
-        {
-            value = Math.floor(seconds / 86400);
-            measurement = 'days';
-        }
-        else if(seconds > 3600)
-        {
-            value = Math.floor(seconds / 3600);
-            measurement = 'hours';
-        }
-        else if(seconds > 60)
-        {
-            value = Math.floor(seconds / 60);
-            measurement = 'minutes';
-        }
-        else
-        {
-            value = seconds;
-        }
+    const angle = ((seconds % 60) / 60) * 360;
+    const x = radius * Math.cos(angle) + buffer;
+    const y = radius * Math.sin(angle) + buffer;
 
-        // Remove the trailing "s" if it's a singular value
-        if(value === 1)
-        {
-            measurement = measurement.split(0, measurement.length - 1)
-        }
-    }
-
-    return <Widget title="Time on Dashboard" value={value} measurement={measurement} />
+    return <div className="panel widget">
+        <h2>Time</h2>
+        <span class="viz viz-timer">
+            {seconds}
+            <span className="viz-timer-hand" style={{ left: y, top: x }}></span>
+        </span>
+    </div>
 }

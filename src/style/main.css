@@ -81,7 +81,7 @@ html, body
 
 .widget h2
 {
-    text-align: center;
+    text-indent: -9999em;
 }
 
 .widget .value
@@ -191,4 +191,31 @@ html, body
 .goal-list li progress::-webkit-progress-bar
 {
     background-color: rgb(231, 231, 231);
+}
+
+/* =VISUALIZATIONS
+------------------------------------------------------- */
+
+.viz-timer
+{
+    background: rgb(218, 235, 251);
+    border-radius: 7em;
+    display: block;
+    height: 7em;
+    margin: 2em auto;
+    position: relative;
+    text-indent: -9999em;
+    width: 7em;
+}
+
+.viz-timer-hand
+{
+    background: rgb(72, 156, 235);
+    border-radius: 1.5em;
+    display: block;
+    height: 1.5em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1.5em;
 }
