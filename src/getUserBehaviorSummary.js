@@ -3,9 +3,10 @@ export default (callback) => {
     const goals = [
 
         // 1
-        { measure: 'seconds', target: 10, description: '10 seconds on dashboard' },
-        { measure: 'clicks', target: 10, description: '10 clicks' },
+        { measure: 'seconds', target: 10 },
+        { measure: 'clicks', target: 10 },
 
+        /*
         // 2
         { measure: 'mouseHoldLength', target: 3, description: '3 second mouse hold' },
         { measure: 'seconds', target: 30, description: '30 seconds on dashboard' },
@@ -64,6 +65,7 @@ export default (callback) => {
         
         // 9
         { measure: 'windowCloses', target: 1, description: '1 window closes' }
+        */
         
     ];
 

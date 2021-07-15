@@ -84,138 +84,41 @@ html, body
     text-indent: -9999em;
 }
 
-.widget .value
-{
-    display: block;
-    text-align: center;
-    font-size: 9em;
-}
-
-.widget .value.big-value
-{
-    font-size: 7em;
-    margin: 0.2em 0;
-}
-
-.widget .measurement
-{
-    color: rgb(128, 128, 128);
-    display: block;
-    text-align: center;
-    margin-top: -1.5em;
-}
-
-/* =INFO-PANELS
-------------------------------------------------------- */
-
-.info-panel
-{
-    width: 100%;
-}
-
-.info-panel h2
-{
-    color: rgb(72, 156, 235);
-    font-size: 1.5em;
-}
-
-.info-panel ul
-{
-    list-style: none;
-    margin: 2em 0 0;
-    padding: 0;
-}
-
-.info-panel li
-{
-    margin-bottom: 1em;
-}
-
-/* =GOALS
-------------------------------------------------------- */
-
-.goal-panel
-{
-    grid-area: goals;
-    height: 40em;
-    overflow: hidden;
-    position: relative;
-}
-
-.goal-panel::after
-{
-    background: #FFF;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 70%);
-    bottom: 0;
-    content: '';
-    display: block;
-    height: 5em;
-    left: 0;
-    position: absolute;
-    width: 100%;
-}
-
-.goal-title
-{
-    display: block;
-    font-weight: bold;
-    margin-bottom: 0.3em;
-}
-
-.goal-list li
-{
-    animation-name: goal-fade-in;
-    animation-duration: 0.5s;
-    transition: opacity 0.5s;
-}
-
-.goal-list li.complete
-{
-    opacity: 0.2;
-}
-
-.goal-list li progress
-{
-    border-radius: 0;
-    display: block;
-    height: 5px;
-    width: 100%;
-}
-
-.goal-list li progress::-webkit-progress-value
-{
-    background-color: rgb(72, 156, 235);
-    transition: width 0.2s;
-}
-
-.goal-list li progress::-webkit-progress-bar
-{
-    background-color: rgb(231, 231, 231);
-}
-
 /* =VISUALIZATIONS
 ------------------------------------------------------- */
 
 .viz-timer
 {
-    background: rgb(218, 235, 251);
+    background: rgb(238, 238, 238);
     border-radius: 7em;
     display: block;
     height: 7em;
     margin: 2em auto;
     position: relative;
     text-indent: -9999em;
+    transition: background-color 0.3s;
     width: 7em;
 }
 
 .viz-timer-hand
 {
-    background: rgb(72, 156, 235);
+    background: rgb(168, 168, 168);
     border-radius: 1.5em;
     display: block;
     height: 1.5em;
     position: absolute;
     top: 0;
     right: 0;
+    transition: background-color 0.3s;
     width: 1.5em;
+}
+
+.viz-timer.complete
+{
+    background: rgb(218, 235, 251);
+}
+
+.viz-timer.complete .viz-timer-hand
+{
+    background: rgb(72, 156, 235);
 }

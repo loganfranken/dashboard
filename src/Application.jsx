@@ -14,19 +14,17 @@ import UniqueKeyPressCounter from './Widgets/UniqueKeyPressCounter'
 import WindowCloseMeasurer from './Widgets/WindowCloseMeasurer'
 import WindowResizeMeasurer from './Widgets/WindowResizeMeasurer'
 
-import GoalList from './GoalList'
-
 export default hot(() => {
 
   const [summary, updateUserBehaviorSummary] = useState(getUserBehaviorSummary());
   useEffect(() => { getUserBehaviorSummary(updateUserBehaviorSummary); }, []);
 
-  // Filter down the goals to include the completed ones and one incomplete one
-  const filteredGoals = summary.goals.filter(goal => goal.isActive).reverse();
+  const completedGoals = summary.goals.filter(goal => goal.isComplete);
+  const isSecondsComplete = completedGoals.some(g => g.measure === 'seconds');
 
   return <div className="dashboard">
     <div className="widget-container">
-      {summary.activeMeasures.includes('seconds') && <Timer seconds={summary.seconds} /> }
+      {summary.activeMeasures.includes('seconds') && <Timer seconds={summary.seconds} isComplete={isSecondsComplete} /> }
       {summary.activeMeasures.includes('clicks') && <ClickCounter clicks={summary.clicks} /> }
       {summary.activeMeasures.includes('mouseHoldLength') && <MouseHoldLengthMeasurer mouseHoldLength={summary.mouseHoldLength} /> }
       {summary.activeMeasures.includes('keyPresses') && <KeyPressCounter keyPresses={summary.keyPresses} /> }
@@ -37,7 +35,6 @@ export default hot(() => {
       {summary.activeMeasures.includes('clickButtonRatio') && <ClickButtonRatioMeasurer clickButtonRatio={summary.clickButtonRatio} /> }
       {summary.activeMeasures.includes('windowCloses') && <WindowCloseMeasurer windowCloses={summary.windowCloses} /> }
     </div>
-    <GoalList goals={filteredGoals} />
   </div>
 
 });
