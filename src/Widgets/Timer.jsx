@@ -11,10 +11,7 @@ export default ({ seconds, isComplete }) => {
     const x = radius * Math.cos(angle) + buffer;
     const y = radius * Math.sin(angle) + buffer;
 
-    return <Widget title="Time">
-        <span className={'viz viz-circle' + (isComplete ? ' complete' : '')}>
-            {seconds}
-            <span className="viz-timer-hand" style={{ left: y, top: x }}></span>
-        </span>
+    return <Widget title="Time" value={seconds} isComplete={isComplete}>
+        <span className="viz-timer-hand" style={{ left: y, top: x }}></span>
     </Widget>
 }
