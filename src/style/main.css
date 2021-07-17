@@ -105,10 +105,10 @@ html, body
     background: rgb(218, 235, 251);
 }
 
-.viz-timer-hand
+.viz-indicator
 {
     background: rgb(168, 168, 168);
-    border-radius: 1.5em;
+    border-radius: 7em;
     display: block;
     height: 1.5em;
     position: absolute;
@@ -118,30 +118,19 @@ html, body
     width: 1.5em;
 }
 
-.complete .viz-timer-hand
+.complete .viz-indicator
 {
     background: rgb(72, 156, 235);
 }
 
-.viz-click-counter
+.viz-center-children
 {
     align-items: center;
     display: flex;
     justify-content: center;
 }
 
-.viz-click-counter-ticker
+.viz-center-children .viz-indicator
 {
-    background: rgb(168, 168, 168);
-    border-radius: 7em;
-    display: block;
-    height: 0;
-    position: absolute;
-    transition: height 0.3s, width 0.3s;
-    width: 0;
-}
-
-.complete .viz-click-counter-ticker
-{
-    background: rgb(72, 156, 235);
+    position: relative;
 }

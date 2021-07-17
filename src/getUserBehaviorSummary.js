@@ -5,15 +5,10 @@ export default (callback) => {
         { measure: 'seconds', target: 10 },
         { measure: 'clicks', target: 10 },
         { measure: 'mouseHoldLength', target: 3 },
+        { measure: 'keyPresses', target: 10 },
 
         /*
-        // 2
-        
-        { measure: 'seconds', target: 30, description: '30 seconds on dashboard' },
-        { measure: 'clicks', target: 30, description: '30 clicks' },
-
         // 3
-        { measure: 'keyPresses', target: 10, description: '10 keys pressed' },
         { measure: 'mouseHoldLength', target: 5, description: '5 second mouse hold' },
         { measure: 'seconds', target: 60, description: '1 minute on dashboard' },
         { measure: 'clicks', target: 50, description: '50 clicks' },

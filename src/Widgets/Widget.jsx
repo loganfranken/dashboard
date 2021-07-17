@@ -1,8 +1,8 @@
 import React from 'react'
 
-export default ({ title, value, isComplete, customClassName, children }) => <div className="panel widget">
+export default ({ title, value, isComplete, centerChildren, children }) => <div className="panel widget">
     <h2>{title}</h2>
-    <span className={'viz viz-circle' + (customClassName ? ' ' + customClassName : '') + (isComplete ? ' complete' : '')}>
+    <span className={'viz viz-circle' + (centerChildren ? ' viz-center-children' : '') + (isComplete ? ' complete' : '')}>
         {value}
         {children}
     </span>
