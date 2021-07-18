@@ -1,7 +1,8 @@
 import React from 'react'
 
 import Widget from './Widget'
+import VizType from '../VizType'
 
-export default ({ keyPresses }) => {
-    return <Widget title="Number of Key Presses" value={keyPresses} measurement="presses" />
+export default ({ keyPresses, isComplete }) => {
+    return <Widget title="Key Press" value={keyPresses} isComplete={isComplete} vizType={VizType.Square} />
 }

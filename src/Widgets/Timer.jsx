@@ -1,4 +1,5 @@
 import React from 'react'
+import VizType from '../VizType';
 
 import Widget from './Widget'
 
@@ -11,7 +12,5 @@ export default ({ seconds, isComplete }) => {
     const x = radius * Math.cos(angle) + buffer;
     const y = radius * Math.sin(angle) + buffer;
 
-    return <Widget title="Time" value={seconds} isComplete={isComplete}>
-        <span className="viz-indicator" style={{ left: y, top: x }}></span>
-    </Widget>
+    return <Widget title="Time" value={seconds} isComplete={isComplete} vizType={VizType.CircleSpin} />
 }
