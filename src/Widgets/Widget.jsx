@@ -1,7 +1,9 @@
 import React from 'react'
+
+import VizIndicatorType from '../VizIndicatorType';
 import VizType from '../VizType'
 
-export default ({ title, value, isComplete, vizType }) => {
+export default ({ title, value, isComplete, vizType, vizIndicatorType, x, y }) => {
 
     let vizCssClassName = '';
     let centerChildren = false;
@@ -9,9 +11,15 @@ export default ({ title, value, isComplete, vizType }) => {
 
     switch(vizType)
     {
-        case VizType.CircleSpin:
+        case VizType.Circle:
             vizCssClassName = 'viz-circle';
-            vizIndicatorStyleProps = 
+            break;
+    }
+
+    switch(vizIndicatorType)
+    {
+        case VizIndicatorType.Positioned:
+            vizIndicatorStyleProps = { left: y, top: x };
             break;
     }
 
@@ -24,8 +32,3 @@ export default ({ title, value, isComplete, vizType }) => {
     </div>
 
 }
-
-
-/*
-<span className="viz-indicator" style={{ left: y, top: x }}></span>
-*/

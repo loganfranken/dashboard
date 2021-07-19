@@ -1,6 +1,7 @@
 import React from 'react'
-import VizType from '../VizType';
 
+import VizIndicatorType from '../VizIndicatorType';
+import VizType from '../VizType';
 import Widget from './Widget'
 
 export default ({ seconds, isComplete }) => {
@@ -12,5 +13,11 @@ export default ({ seconds, isComplete }) => {
     const x = radius * Math.cos(angle) + buffer;
     const y = radius * Math.sin(angle) + buffer;
 
-    return <Widget title="Time" value={seconds} isComplete={isComplete} vizType={VizType.CircleSpin} />
+    return <Widget title="Time"
+        value={seconds}
+        isComplete={isComplete}
+        vizType={VizType.Circle}
+        vizIndicatorType={VizIndicatorType.Positioned}
+        x={x}
+        y={y} />
 }
