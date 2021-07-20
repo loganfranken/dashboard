@@ -3,7 +3,7 @@ import React from 'react'
 import VizIndicatorType from '../VizIndicatorType';
 import VizType from '../VizType'
 
-export default ({ title, value, isComplete, vizType, vizIndicatorType, x, y }) => {
+export default ({ title, value, isComplete, vizType, vizIndicatorType, x, y, height, width }) => {
 
     let vizCssClassName = '';
     let centerChildren = false;
@@ -21,6 +21,10 @@ export default ({ title, value, isComplete, vizType, vizIndicatorType, x, y }) =
         case VizIndicatorType.Positioned:
             vizIndicatorStyleProps = { left: y, top: x };
             break;
+
+        case VizIndicatorType.Centered:
+            centerChildren = true
+            vizIndicatorStyleProps = { height, width }
     }
 
     return <div className="panel widget">
