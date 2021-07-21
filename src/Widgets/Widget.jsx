@@ -1,6 +1,6 @@
 import React from 'react'
 
-import VizIndicatorType from '../VizIndicatorType';
+import VizIndicatorType from '../VizIndicatorType'
 import VizType from '../VizType'
 
 export default ({ title, value, isComplete, vizType, vizIndicatorType, x, y, height, width }) => {
