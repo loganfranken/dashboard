@@ -87,10 +87,9 @@ html, body
 /* =VISUALIZATIONS
 ------------------------------------------------------- */
 
-.viz-circle
+.viz
 {
     background: rgb(238, 238, 238);
-    border-radius: 7em;
     display: block;
     height: 7em;
     margin: 2em auto;
@@ -100,15 +99,19 @@ html, body
     width: 7em;
 }
 
-.viz-circle.complete
+.viz.complete
 {
     background: rgb(218, 235, 251);
+}
+
+.viz-circle
+{
+    border-radius: 7em;
 }
 
 .viz-indicator
 {
     background: rgb(168, 168, 168);
-    border-radius: 7em;
     display: block;
     height: 1.5em;
     position: absolute;
@@ -116,6 +119,11 @@ html, body
     right: 0;
     transition: background-color 0.3s;
     width: 1.5em;
+}
+
+.viz-circle .viz-indicator
+{
+    border-radius: 7em;
 }
 
 .complete .viz-indicator
@@ -130,7 +138,18 @@ html, body
     justify-content: center;
 }
 
+.viz-multiple-children
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .viz-center-children .viz-indicator
+{
+    position: relative;
+}
+
+.viz-multiple-children .viz-indicator
 {
     position: relative;
 }

@@ -7,6 +7,7 @@ export default ({ title, value, isComplete, vizType, vizIndicatorType, x, y, hei
 
     let vizCssClassName = '';
     let centerChildren = false;
+    let hasMultipleChildren = false;
     let vizIndicatorStyleProps = {};
 
     switch(vizType)
@@ -14,24 +15,36 @@ export default ({ title, value, isComplete, vizType, vizIndicatorType, x, y, hei
         case VizType.Circle:
             vizCssClassName = 'viz-circle';
             break;
+
+        case VizType.Square:
+            vizCssClassName = 'viz-square';
+            break;
     }
 
     switch(vizIndicatorType)
     {
         case VizIndicatorType.Positioned:
-            vizIndicatorStyleProps = { left: y, top: x };
+            vizIndicatorStyleProps = { left: y, top: x }
             break;
 
         case VizIndicatorType.Centered:
             centerChildren = true
             vizIndicatorStyleProps = { height, width }
+            break;
+
+        case VizIndicatorType.Multiple:
+            hasMultipleChildren = true
+            break;
     }
 
     return <div className="panel widget">
         <h2>{title}</h2>
-        <span className={'viz ' + vizCssClassName + (centerChildren ? ' viz-center-children' : '') + (isComplete ? ' complete' : '')}>
+        <span className={'viz ' + vizCssClassName + (centerChildren ? ' viz-center-children' : '') + (hasMultipleChildren ? ' viz-multiple-children' : '') + (isComplete ? ' complete' : '')}>
             {value}
-            <span className="viz-indicator" style={vizIndicatorStyleProps}></span>
+            {vizIndicatorType === VizIndicatorType.Multiple
+                ? [...Array(value)].map((e, i) => <span className="viz-indicator"></span>)
+                : <span className="viz-indicator" style={vizIndicatorStyleProps}></span>
+            }
         </span>
     </div>
 
