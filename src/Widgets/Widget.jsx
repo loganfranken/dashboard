@@ -3,7 +3,7 @@ import React from 'react'
 import VizIndicatorType from '../VizIndicatorType'
 import VizType from '../VizType'
 
-export default ({ title, value, isComplete, vizType, vizIndicatorType, x, y, height, width }) => {
+export default ({ title, value, target, isComplete, vizType, vizIndicatorType, x, y, height, width }) => {
 
     let vizCssClassName = '';
     let centerChildren = false;
@@ -24,16 +24,17 @@ export default ({ title, value, isComplete, vizType, vizIndicatorType, x, y, hei
     switch(vizIndicatorType)
     {
         case VizIndicatorType.Positioned:
-            vizIndicatorStyleProps = { left: y, top: x }
+            vizIndicatorStyleProps = { left: y, top: x };
             break;
 
         case VizIndicatorType.Centered:
-            centerChildren = true
-            vizIndicatorStyleProps = { height, width }
+            centerChildren = true;
+            vizIndicatorStyleProps = { height, width };
             break;
 
         case VizIndicatorType.Multiple:
-            hasMultipleChildren = true
+            hasMultipleChildren = true;
+            vizIndicatorStyleProps = { height, width };
             break;
     }
 
@@ -42,7 +43,7 @@ export default ({ title, value, isComplete, vizType, vizIndicatorType, x, y, hei
         <span className={'viz ' + vizCssClassName + (centerChildren ? ' viz-center-children' : '') + (hasMultipleChildren ? ' viz-multiple-children' : '') + (isComplete ? ' complete' : '')}>
             {value}
             {vizIndicatorType === VizIndicatorType.Multiple
-                ? [...Array(value)].map((e, i) => <span className="viz-indicator"></span>)
+                ? [...Array(Math.min(value, target))].map((e, i) => <span className="viz-indicator" style={vizIndicatorStyleProps}></span>)
                 : <span className="viz-indicator" style={vizIndicatorStyleProps}></span>
             }
         </span>

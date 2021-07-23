@@ -140,6 +140,7 @@ html, body
 
 .viz-multiple-children
 {
+    align-content: flex-start;
     display: flex;
     flex-wrap: wrap;
 }

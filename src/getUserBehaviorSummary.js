@@ -5,7 +5,7 @@ export default (callback) => {
         { measure: 'seconds', target: 10 },
         { measure: 'clicks', target: 10 },
         { measure: 'mouseHoldLength', target: 3 },
-        { measure: 'keyPresses', target: 10 },
+        { measure: 'keyPresses', target: 9 },
 
         /*
         // 3
