@@ -16,6 +16,10 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType, x
             vizCssClassName = 'viz-circle';
             break;
 
+        case VizType.CirclePair:
+            vizCssClassName = 'viz-circle-pair';
+            break;
+
         case VizType.Square:
             vizCssClassName = 'viz-square';
             break;
@@ -25,6 +29,12 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType, x
     {
         case VizIndicatorType.Positioned:
             vizIndicatorStyleProps = { left: y, top: x };
+
+            if(vizType === VizType.CirclePair)
+            {
+                vizIndicatorStyleProps = { left: '-' + y, top: '-' + x }
+            }
+
             break;
 
         case VizIndicatorType.Centered:
