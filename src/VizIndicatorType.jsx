@@ -1,4 +1,6 @@
 export default {
-    Positioned: 0,
-    Centered: 1
+    CirclePositioned: 0,
+    CircleGrowing: 1,
+    CirclePair: 2,
+    Multiple: 3
 }

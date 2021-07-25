@@ -25,26 +25,36 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType, x
             break;
     }
 
+    let percentage = 0;
+
     switch(vizIndicatorType)
     {
-        case VizIndicatorType.Positioned:
+        case VizIndicatorType.CirclePositioned:
+            const radius = 30;
+            const buffer = 45;
+        
+            const angle = ((value % 60) / 60) * 360;
+            const x = radius * Math.cos(angle) + buffer;
+            const y = radius * Math.sin(angle) + buffer;
+
             vizIndicatorStyleProps = { left: y, top: x };
-
-            if(vizType === VizType.CirclePair)
-            {
-                vizIndicatorStyleProps = { left: '-' + y, top: '-' + x }
-            }
-
             break;
 
-        case VizIndicatorType.Centered:
+        case VizIndicatorType.CircleGrowing:
+            percentage = (value >= target) ? 100 : (value/target) * 100;
             centerChildren = true;
-            vizIndicatorStyleProps = { height, width };
+            vizIndicatorStyleProps = { height: `${percentage}%`, width: `${percentage}%` };
             break;
 
         case VizIndicatorType.Multiple:
+            percentage = (100 / Math.sqrt(target));
             hasMultipleChildren = true;
-            vizIndicatorStyleProps = { height, width };
+            vizIndicatorStyleProps = { height: `${percentage}%`, width: `${percentage}%` };
+            break;
+
+        case VizIndicatorType.CirclePair:
+            percentage = 100 - ((value >= target) ? 100 : (value/target) * 100);
+            vizIndicatorStyleProps = { left: '-' + percentage, top: '-' + percentage }
             break;
     }
 

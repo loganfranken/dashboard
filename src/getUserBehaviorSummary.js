@@ -2,21 +2,14 @@ export default (callback) => {
 
     const goals = [
 
-        { measure: 'mouseDistance', target: 10000 },
         { measure: 'seconds', target: 10 },
         { measure: 'clicks', target: 10 },
         { measure: 'mouseHoldLength', target: 3 },
         { measure: 'keyPresses', target: 9 },
+        { measure: 'mouseDistance', target: 10000 },
+        { measure: 'uniqueKeyPresses', target: 20 },
 
         /*
-        // 5
-        { measure: 'uniqueKeyPresses', target: 20, description: '20 unique key presses' },
-        { measure: 'mouseDistance', target: 2000, description: 'Mouse moved 2000 pixels' },
-        { measure: 'keyPresses', target: 30, description: '30 keys pressed' },
-        { measure: 'mouseHoldLength', target: 10, description: '10 second mouse hold' },
-        { measure: 'seconds', target: 300, description: '5 minutes on dashboard' },
-        { measure: 'clicks', target: 100, description: '100 clicks' },
-
         // 6
         { measure: 'mouseVelocity', target: 10, description: 'Mouse velocity of 10 p/s' },
         { measure: 'uniqueKeyPresses', target: 30, description: '30 unique key presses' },
