@@ -8,17 +8,9 @@ export default (callback) => {
         { measure: 'keyPresses', target: 9 },
         { measure: 'mouseDistance', target: 10000 },
         { measure: 'uniqueKeyPresses', target: 20 },
+        { measure: 'mouseVelocity', target: 10 },
 
         /*
-        // 6
-        { measure: 'mouseVelocity', target: 10, description: 'Mouse velocity of 10 p/s' },
-        { measure: 'uniqueKeyPresses', target: 30, description: '30 unique key presses' },
-        { measure: 'mouseDistance', target: 3000, description: 'Mouse moved 3000 pixels' },
-        { measure: 'keyPresses', target: 40, description: '40 keys pressed' },
-        { measure: 'mouseHoldLength', target: 15, description: '15 second mouse hold' },
-        { measure: 'seconds', target: 420, description: '7 minutes on dashboard' },
-        { measure: 'clicks', target: 200, description: '200 clicks' },
-
         // 7
         { measure: 'windowResizePercentage', target: 30, description: 'Change window size by 30 percent' },
         { measure: 'mouseVelocity', target: 20, description: 'Mouse velocity of 20 p/s' },

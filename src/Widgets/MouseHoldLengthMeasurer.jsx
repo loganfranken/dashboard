@@ -1,8 +1,8 @@
 import React from 'react'
-import VizIndicatorType from '../VizIndicatorType'
-import VizType from '../VizType'
 
 import Widget from './Widget'
+import VizIndicatorType from '../VizIndicatorType'
+import VizType from '../VizType'
 
 export default ({ mouseHoldLength, target, isComplete }) =>
     <Widget title="Mouse Hold"

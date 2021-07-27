@@ -20,6 +20,10 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType, x
             vizCssClassName = 'viz-circle-pair';
             break;
 
+        case VizType.HalfCircle:
+            vizCssClassName = 'viz-half-circle';
+            break;
+
         case VizType.Square:
             vizCssClassName = 'viz-square';
             break;
@@ -55,6 +59,12 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType, x
         case VizIndicatorType.CirclePair:
             percentage = 100 - ((value >= target) ? 100 : (value/target) * 100);
             vizIndicatorStyleProps = { left: '-' + percentage, top: '-' + percentage }
+            break;
+
+        case VizIndicatorType.CircleGauge:
+            percentage = 100 - ((value >= target) ? 100 : (value/target) * 100);
+            const degree = ((percentage/100) * 180) - 90;
+            vizIndicatorStyleProps = { transform: `rotate(${degree}deg)` }
             break;
     }
 
