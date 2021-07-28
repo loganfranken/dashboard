@@ -3,6 +3,7 @@ export default (callback) => {
     const goals = [
 
         { measure: 'seconds', target: 10 },
+        { measure: 'windowResizePercentage', target: 30 },
         { measure: 'clicks', target: 10 },
         { measure: 'mouseHoldLength', target: 3 },
         { measure: 'keyPresses', target: 9 },
@@ -11,16 +12,6 @@ export default (callback) => {
         { measure: 'mouseVelocity', target: 10 },
 
         /*
-        // 7
-        { measure: 'windowResizePercentage', target: 30, description: 'Change window size by 30 percent' },
-        { measure: 'mouseVelocity', target: 20, description: 'Mouse velocity of 20 p/s' },
-        { measure: 'uniqueKeyPresses', target: 40, description: '40 unique key presses' },
-        { measure: 'mouseDistance', target: 5000, description: 'Mouse moved 5000 pixels' },
-        { measure: 'keyPresses', target: 50, description: '50 keys pressed' },
-        { measure: 'mouseHoldLength', target: 20, description: '20 second mouse hold' },
-        { measure: 'seconds', target: 540, description: '9 minutes on dashboard' },
-        { measure: 'clicks', target: 300, description: '300 clicks' },
-
         // 8
         { measure: 'clickButtonRatio', target: 0.3, description: '0.3 click button ratio' },
         { measure: 'windowResizePercentage', target: 60, description: 'Change window size by 60 percent' },

@@ -127,6 +127,12 @@ html, body
     width: 1.5em;
 }
 
+.viz-square-outline
+{
+    background: transparent;
+    border: 5px rgb(238, 238, 238);
+}
+
 .viz-indicator
 {
     background: rgb(168, 168, 168);

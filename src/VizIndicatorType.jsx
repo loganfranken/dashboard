@@ -3,5 +3,6 @@ export default {
     CircleGrowing: 1,
     CirclePair: 2,
     CircleGauge: 3,
-    Multiple: 4
+    Multiple: 4,
+    SquareGrowing: 5
 }

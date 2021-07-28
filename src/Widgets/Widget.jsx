@@ -27,6 +27,10 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType, x
         case VizType.Square:
             vizCssClassName = 'viz-square';
             break;
+
+        case VizType.SquareOutline:
+            vizCssClassName = 'viz-square-outline';
+            break;
     }
 
     let percentage = 0;
@@ -65,6 +69,12 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType, x
             percentage = 100 - ((value >= target) ? 100 : (value/target) * 100);
             const degree = ((percentage/100) * 180) - 90;
             vizIndicatorStyleProps = { transform: `rotate(${degree}deg)` }
+            break;
+
+        case VizIndicatorType.SquareGrowing:
+            percentage = (value >= target) ? 100 : (value/target) * 100;
+            centerChildren = true;
+            vizIndicatorStyleProps = { height: `${percentage}%`, width: `${percentage}%` };
             break;
     }
 
