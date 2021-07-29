@@ -26,6 +26,7 @@ export default hot(() => {
   const mouseDistanceGoal = summary.goals.find(goal => goal.measure === 'mouseDistance');
   const uniqueKeyPressGoal = summary.goals.find(goal => goal.measure === 'uniqueKeyPresses');
   const mouseVelocityGoal = summary.goals.find(goal => goal.measure === 'mouseVelocity');
+  const windowResizePercentageGoal = summary.goals.find(goal => goal.measure === 'windowResizePercentage');
 
   return <div className="dashboard">
     <div className="widget-container">
@@ -36,7 +37,7 @@ export default hot(() => {
       {summary.activeMeasures.includes('mouseDistance') && <MouseDistanceMeasurer mouseDistance={summary.mouseDistance} target={mouseDistanceGoal.target} isComplete={mouseDistanceGoal.isComplete} /> }
       {summary.activeMeasures.includes('uniqueKeyPresses') && <UniqueKeyPressCounter uniqueKeyPresses={summary.uniqueKeyPresses} target={uniqueKeyPressGoal.target} isComplete={uniqueKeyPressGoal.isComplete} /> }
       {summary.activeMeasures.includes('mouseVelocity') && <MouseVelocityMeasurer mouseVelocity={summary.mouseVelocity} target={mouseVelocityGoal.target} isComplete={mouseVelocityGoal.isComplete} /> }
-      {summary.activeMeasures.includes('windowResizePercentage') && <WindowResizeMeasurer windowResizePercentage={summary.windowResizePercentage} /> }
+      {summary.activeMeasures.includes('windowResizePercentage') && <WindowResizeMeasurer windowResizePercentage={summary.windowResizePercentage} target={windowResizePercentageGoal.target} isComplete={windowResizePercentageGoal.isComplete} /> }
       {summary.activeMeasures.includes('clickButtonRatio') && <ClickButtonRatioMeasurer clickButtonRatio={summary.clickButtonRatio} /> }
       {summary.activeMeasures.includes('windowCloses') && <WindowCloseMeasurer windowCloses={summary.windowCloses} /> }
     </div>

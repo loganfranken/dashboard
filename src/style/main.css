@@ -130,7 +130,7 @@ html, body
 .viz-square-outline
 {
     background: transparent;
-    border: 5px rgb(238, 238, 238);
+    border: 5px rgb(238, 238, 238) solid;
 }
 
 .viz-indicator

@@ -74,6 +74,7 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType, x
         case VizIndicatorType.SquareGrowing:
             percentage = (value >= target) ? 100 : (value/target) * 100;
             centerChildren = true;
+            console.log(percentage);
             vizIndicatorStyleProps = { height: `${percentage}%`, width: `${percentage}%` };
             break;
     }
