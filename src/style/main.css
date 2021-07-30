@@ -133,6 +133,11 @@ html, body
     border: 5px rgb(238, 238, 238) solid;
 }
 
+.viz-blank
+{
+    background: transparent;
+}
+
 .viz-indicator
 {
     background: rgb(168, 168, 168);

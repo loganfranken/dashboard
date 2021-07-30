@@ -8,7 +8,10 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType, x
     let vizCssClassName = '';
     let centerChildren = false;
     let hasMultipleChildren = false;
+
     let vizIndicatorStyleProps = {};
+    let vizIndicatorStylePropsLeft = {};
+    let vizIndicatorStylePropsRight = {};
 
     switch(vizType)
     {
@@ -74,8 +77,12 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType, x
         case VizIndicatorType.SquareGrowing:
             percentage = (value >= target) ? 100 : (value/target) * 100;
             centerChildren = true;
-            console.log(percentage);
             vizIndicatorStyleProps = { height: `${percentage}%`, width: `${percentage}%` };
+            break;
+
+        case VizIndicatorType.CircleEquilibrium:
+            vizIndicatorStylePropsLeft = { top: '-' + value };
+            vizIndicatorStylePropsRight = { top: value };
             break;
     }
 
@@ -85,7 +92,14 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType, x
             {value}
             {vizIndicatorType === VizIndicatorType.Multiple
                 ? [...Array(Math.min(value, target))].map((e, i) => <span className="viz-indicator" style={vizIndicatorStyleProps}></span>)
-                : <span className="viz-indicator" style={vizIndicatorStyleProps}></span>
+
+            : vizIndicatorType === VizIndicatorType.CircleEquilibrium
+                ? <React.Fragment>
+                    <span className="viz-indicator viz-indicator-left" style={vizIndicatorStylePropsLeft}></span>
+                    <span className="viz-indicator viz-indicator-right" style={vizIndicatorStylePropsRight}></span>
+                  </React.Fragment>
+
+            : <span className="viz-indicator" style={vizIndicatorStyleProps}></span>
             }
         </span>
     </div>

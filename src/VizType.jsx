@@ -3,5 +3,6 @@ export default {
     Square: 1,
     CirclePair: 2,
     HalfCircle: 3,
-    SquareOutline: 4
+    SquareOutline: 4,
+    Blank: 5
 }
