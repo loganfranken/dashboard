@@ -138,6 +138,11 @@ html, body
     background: transparent;
 }
 
+.complete.viz-blank
+{
+    background: transparent;
+}
+
 .viz-indicator
 {
     background: rgb(168, 168, 168);
@@ -191,4 +196,21 @@ html, body
 .viz-multiple-children .viz-indicator
 {
     position: relative;
+}
+
+.viz-indicator-left
+{
+    border-radius: 5em;
+    left: 1em;
+}
+
+.viz-indicator-right
+{
+    border-radius: 5em;
+    right: 1em;
+}
+
+.viz-blank .viz-indicator-left
+{
+    top: inherit;
 }

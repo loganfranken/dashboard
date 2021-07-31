@@ -15,6 +15,10 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType, x
 
     switch(vizType)
     {
+        case VizType.Blank:
+            vizCssClassName = 'viz-blank';
+            break;
+
         case VizType.Circle:
             vizCssClassName = 'viz-circle';
             break;
@@ -81,8 +85,9 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType, x
             break;
 
         case VizIndicatorType.CircleEquilibrium:
-            vizIndicatorStylePropsLeft = { top: '-' + value };
-            vizIndicatorStylePropsRight = { top: value };
+            percentage = value * 100;
+            vizIndicatorStylePropsLeft = { bottom: `${percentage}%` };
+            vizIndicatorStylePropsRight = { top: `${percentage}%` };
             break;
     }
 
