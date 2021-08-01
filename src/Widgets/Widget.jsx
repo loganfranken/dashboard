@@ -3,7 +3,7 @@ import React from 'react'
 import VizIndicatorType from '../VizIndicatorType'
 import VizType from '../VizType'
 
-export default ({ title, value, target, isComplete, vizType, vizIndicatorType, x, y, height, width }) => {
+export default ({ title, value, target, isComplete, vizType, vizIndicatorType }) => {
 
     let vizCssClassName = '';
     let centerChildren = false;
