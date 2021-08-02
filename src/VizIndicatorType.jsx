@@ -1,8 +1,8 @@
 export default {
-    CirclePositioned: 0,
-    CircleGrowing: 1,
-    CirclePair: 2,
-    CircleGauge: 3,
-    Multiple: 4,
-    SquareGrowing: 5
+    RadialPositioned: 0,
+    Growing: 1,
+    MergingPair: 2,
+    EquilibriumPair: 3,
+    Gauge: 4,
+    Multiple: 5
 }

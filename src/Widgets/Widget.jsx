@@ -40,11 +40,11 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType })
             break;
     }
 
-    let percentage = 0;
+    let percentage = (value >= target) ? 100 : (value/target) * 100;
 
     switch(vizIndicatorType)
     {
-        case VizIndicatorType.CirclePositioned:
+        case VizIndicatorType.RadialPositioned:
             const radius = 30;
             const buffer = 45;
         
@@ -55,8 +55,7 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType })
             vizIndicatorStyleProps = { left: y, top: x };
             break;
 
-        case VizIndicatorType.CircleGrowing:
-            percentage = (value >= target) ? 100 : (value/target) * 100;
+        case VizIndicatorType.Growing:
             centerChildren = true;
             vizIndicatorStyleProps = { height: `${percentage}%`, width: `${percentage}%` };
             break;
@@ -67,24 +66,16 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType })
             vizIndicatorStyleProps = { height: `${percentage}%`, width: `${percentage}%` };
             break;
 
-        case VizIndicatorType.CirclePair:
-            percentage = 100 - ((value >= target) ? 100 : (value/target) * 100);
+        case VizIndicatorType.MergingPair:
             vizIndicatorStyleProps = { left: '-' + percentage, top: '-' + percentage }
             break;
 
-        case VizIndicatorType.CircleGauge:
-            percentage = 100 - ((value >= target) ? 100 : (value/target) * 100);
+        case VizIndicatorType.Gauge:
             const degree = ((percentage/100) * 180) - 90;
             vizIndicatorStyleProps = { transform: `rotate(${degree}deg)` }
             break;
 
-        case VizIndicatorType.SquareGrowing:
-            percentage = (value >= target) ? 100 : (value/target) * 100;
-            centerChildren = true;
-            vizIndicatorStyleProps = { height: `${percentage}%`, width: `${percentage}%` };
-            break;
-
-        case VizIndicatorType.CircleEquilibrium:
+        case VizIndicatorType.EquilibriumPair:
             percentage = value * 100;
             vizIndicatorStylePropsLeft = { bottom: `${percentage}%` };
             vizIndicatorStylePropsRight = { top: `${percentage}%` };
