@@ -9,4 +9,4 @@ export default ({ seconds, isComplete }) =>
         value={seconds}
         isComplete={isComplete}
         vizType={VizType.Circle}
-        vizIndicatorType={VizIndicatorType.CirclePositioned} />
+        vizIndicatorType={VizIndicatorType.RadialPositioned} />
