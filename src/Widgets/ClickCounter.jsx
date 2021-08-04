@@ -10,4 +10,4 @@ export default ({ clicks, target, isComplete }) =>
         target={target}
         isComplete={isComplete}
         vizType={VizType.Circle}
-        vizIndicatorType={VizIndicatorType.CircleGrowing} />
+        vizIndicatorType={VizIndicatorType.Growing} />

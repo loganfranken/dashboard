@@ -105,7 +105,47 @@ html, body
     background: rgb(218, 235, 251);
 }
 
-.viz-circle, .viz-circle-pair
+.viz-indicator
+{
+    background: rgb(168, 168, 168);
+    display: block;
+    height: 1.5em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: background-color 0.3s, height 0.1s, width 0.1s;
+    width: 1.5em;
+}
+
+.complete .viz-indicator
+{
+    background: rgb(72, 156, 235);
+}
+
+.viz-center-children
+{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.viz-center-children .viz-indicator
+{
+    position: relative;
+}
+
+.viz-circle
+{
+    border-radius: 7em;
+}
+
+.viz-circle .viz-indicator
+{
+    border-radius: 7em;
+}
+
+/*
+.viz-circle-pair
 {
     border-radius: 7em;
 }
@@ -143,19 +183,7 @@ html, body
     background: transparent;
 }
 
-.viz-indicator
-{
-    background: rgb(168, 168, 168);
-    display: block;
-    height: 1.5em;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transition: background-color 0.3s;
-    width: 1.5em;
-}
-
-.viz-circle .viz-indicator, .viz-circle-pair .viz-indicator
+.viz-circle-pair .viz-indicator
 {
     border-radius: 7em;
 }
@@ -169,28 +197,11 @@ html, body
     width: 7em;
 }
 
-.complete .viz-indicator
-{
-    background: rgb(72, 156, 235);
-}
-
-.viz-center-children
-{
-    align-items: center;
-    display: flex;
-    justify-content: center;
-}
-
 .viz-multiple-children
 {
     align-content: flex-start;
     display: flex;
     flex-wrap: wrap;
-}
-
-.viz-center-children .viz-indicator
-{
-    position: relative;
 }
 
 .viz-multiple-children .viz-indicator
@@ -214,3 +225,4 @@ html, body
 {
     top: inherit;
 }
+*/
