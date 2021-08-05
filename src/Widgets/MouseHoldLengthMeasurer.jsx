@@ -1,8 +1,8 @@
 import React from 'react'
 
-import Widget from './Widget'
 import VizIndicatorType from '../VizIndicatorType'
 import VizType from '../VizType'
+import Widget from './Widget'
 
 export default ({ mouseHoldLength, target, isComplete }) =>
     <Widget title="Mouse Hold"
@@ -10,4 +10,4 @@ export default ({ mouseHoldLength, target, isComplete }) =>
         target={target}
         isComplete={isComplete}
         vizType={VizType.Circle}
-        vizIndicatorType={VizIndicatorType.CircleGrowing} />
+        vizIndicatorType={VizIndicatorType.Growing} />

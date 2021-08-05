@@ -107,9 +107,13 @@ export default (callback) => {
     let mouseDownTime = null;
     let mouseDownInterval = null;
 
-    const updateMouseHoldLength = () => {
+    const updateMouseHoldLength = (value) => {
 
-        if(mouseDownTime !== null)
+        if(typeof value !== 'undefined')
+        {
+            state.mouseHoldLength = 0;
+        }
+        else if(mouseDownTime !== null)
         {
             const mouseHoldLength = ((Date.now() - mouseDownTime) / 1000);
             state.mouseHoldLength = mouseHoldLength;
@@ -155,7 +159,7 @@ export default (callback) => {
     });
 
     addEventListener('mouseup', () => {
-        updateMouseHoldLength();
+        updateMouseHoldLength(0);
         clearInterval(mouseDownInterval);
         mouseDownInterval = null;
     });

@@ -40,7 +40,7 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType })
             break;
     }
 
-    let percentage = (value >= target) ? 100 : (value/target) * 100;
+    let percentage = isComplete ? 100 : (value >= target) ? 100 : (value/target) * 100;
 
     switch(vizIndicatorType)
     {
