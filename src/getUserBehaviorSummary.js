@@ -3,7 +3,7 @@ export default (callback) => {
     const goals = [
         { measure: 'seconds', target: 10 },
         { measure: 'clicks', target: 10 },
-        { measure: 'mouseHoldLength', target: 3 },
+        { measure: 'mouseHoldLength', target: 1 },
         { measure: 'keyPresses', target: 9 },
         { measure: 'mouseDistance', target: 10000 },
         { measure: 'uniqueKeyPresses', target: 20 },
