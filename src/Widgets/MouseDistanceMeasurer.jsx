@@ -9,5 +9,5 @@ export default ({ mouseDistance, target, isComplete }) =>
         value={mouseDistance}
         target={target}
         isComplete={isComplete}
-        vizType={VizType.CirclePair}
-        vizIndicatorType={VizIndicatorType.CirclePair} />
+        vizType={VizType.Blank}
+        vizIndicatorType={VizIndicatorType.MergingPair} />

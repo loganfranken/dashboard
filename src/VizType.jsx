@@ -1,8 +1,7 @@
 export default {
     Circle: 0,
     Square: 1,
-    CirclePair: 2,
-    HalfCircle: 3,
-    SquareOutline: 4,
-    Blank: 5
+    HalfCircle: 2,
+    SquareOutline: 3,
+    Blank: 4
 }
