@@ -10,4 +10,4 @@ export default ({ mouseVelocity, target, isComplete }) =>
         target={target}
         isComplete={isComplete}
         vizType={VizType.HalfCircle}
-        vizIndicatorType={VizIndicatorType.CircleGauge} />
+        vizIndicatorType={VizIndicatorType.Gauge} />

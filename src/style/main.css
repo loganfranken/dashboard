@@ -158,6 +158,23 @@ html, body
     border-radius: 7em;
 }
 
+.viz-half-circle
+{
+    border-radius: 7em 7em 0 0;
+    height: 3.5em;
+    overflow: hidden;
+    position: relative;
+}
+
+.viz-half-circle .viz-indicator
+{
+    height: 7em;
+    left: -3.5em;
+    position: absolute;
+    transform-origin: center right;
+    width: 7em;
+}
+
 .viz-blank
 {
     background: transparent;
@@ -187,27 +204,10 @@ html, body
 }
 
 /*
-.viz-half-circle
-{
-    border-radius: 7em 7em 0 0;
-    height: 3.5em;
-    overflow: hidden;
-    position: relative;
-}
-
 .viz-square-outline
 {
     background: transparent;
     border: 5px rgb(238, 238, 238) solid;
-}
-
-.viz-half-circle .viz-indicator
-{
-    height: 7em;
-    left: -3.5em;
-    position: absolute;
-    transform-origin: center right;
-    width: 7em;
 }
 
 .viz-indicator-left
