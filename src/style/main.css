@@ -186,6 +186,17 @@ html, body
     background: transparent;
 }
 
+.viz-square-outline
+{
+    background: transparent;
+    border: 5px rgb(238, 238, 238) solid;
+}
+
+.complete.viz-square-outline
+{
+    border-color: rgb(218, 235, 251);
+}
+
 .viz-indicator-left, .viz-indicator-right
 {
     border-radius: 5em;
@@ -202,28 +213,3 @@ html, body
     background: rgb(238, 238, 238);
     z-index: 0;
 }
-
-/*
-.viz-square-outline
-{
-    background: transparent;
-    border: 5px rgb(238, 238, 238) solid;
-}
-
-.viz-indicator-left
-{
-    border-radius: 5em;
-    left: 1em;
-}
-
-.viz-indicator-right
-{
-    border-radius: 5em;
-    right: 1em;
-}
-
-.viz-blank .viz-indicator-left
-{
-    top: inherit;
-}
-*/

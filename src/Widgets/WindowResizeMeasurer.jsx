@@ -10,4 +10,4 @@ export default ({ windowResizePercentage, target, isComplete }) =>
             target={target}
             isComplete={isComplete}
             vizType={VizType.SquareOutline}
-            vizIndicatorType={VizIndicatorType.SquareGrowing} />
+            vizIndicatorType={VizIndicatorType.Growing} />
