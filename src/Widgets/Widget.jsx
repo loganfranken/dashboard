@@ -67,8 +67,9 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType })
             break;
 
         case VizIndicatorType.MergingPair:
-            vizIndicatorStylePropsLeft = { left: `${percentage}%`, top: `${percentage}%` };
-            vizIndicatorStylePropsRight = { left: '100%', top: '100%' };
+            const cappedPercentage = (percentage/100) * 80;
+            vizIndicatorStylePropsLeft = { left: `${cappedPercentage}%`, top: `${cappedPercentage}%` };
+            vizIndicatorStylePropsRight = { left: '80%', top: '80%' };
             break;
 
         case VizIndicatorType.Gauge:

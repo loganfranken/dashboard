@@ -10,4 +10,4 @@ export default ({ clickButtonRatio, target, isComplete }) =>
         target={target}
         isComplete={isComplete}
         vizType={VizType.Blank}
-        vizIndicatorType={VizIndicatorType.CircleEquilibrium} />
+        vizIndicatorType={VizIndicatorType.EquilibriumPair} />
