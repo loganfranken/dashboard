@@ -6,7 +6,7 @@ export default (callback) => {
         { measure: 'mouseHoldLength', target: 1 },
         { measure: 'keyPresses', target: 9 },
         { measure: 'mouseDistance', target: 5000 },
-        { measure: 'uniqueKeyPresses', target: 27 },
+        { measure: 'uniqueKeyPresses', target: 16 },
         { measure: 'mouseVelocity', target: 10 },
         { measure: 'windowResizePercentage', target: 30 },
         { measure: 'clickButtonRatio', target: 0.3 },
