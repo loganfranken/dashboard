@@ -78,9 +78,9 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType })
             break;
 
         case VizIndicatorType.EquilibriumPair:
-            percentage = value * 100;
-            vizIndicatorStylePropsLeft = { bottom: `${percentage}%` };
-            vizIndicatorStylePropsRight = { top: `${percentage}%` };
+            percentage = (percentage/100) * (40);
+            vizIndicatorStylePropsLeft = { left: 0, top: 'inherit', bottom: `${percentage}%` };
+            vizIndicatorStylePropsRight = { right: 0, top: `${percentage}%`, bottom: 'inherit' };
             break;
     }
 
@@ -91,7 +91,7 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType })
             {vizIndicatorType === VizIndicatorType.Multiple
                 ? [...Array(Math.min(value, target))].map((e, i) => <span className="viz-indicator" style={vizIndicatorStyleProps}></span>)
 
-            : (vizIndicatorType === VizIndicatorType.CircleEquilibrium || vizIndicatorType == VizIndicatorType.MergingPair)
+            : (vizIndicatorType === VizIndicatorType.EquilibriumPair || vizIndicatorType == VizIndicatorType.MergingPair)
                 ? <React.Fragment>
                     <span className="viz-indicator viz-indicator-left" style={vizIndicatorStylePropsLeft}></span>
                     <span className="viz-indicator viz-indicator-right" style={vizIndicatorStylePropsRight}></span>

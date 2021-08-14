@@ -9,7 +9,7 @@ export default (callback) => {
         { measure: 'uniqueKeyPresses', target: 16 },
         { measure: 'mouseVelocity', target: 10 },
         { measure: 'windowResizePercentage', target: 30 },
-        { measure: 'clickButtonRatio', target: 0.3 },
+        { measure: 'clickButtonRatio', target: 0.5 },
         { measure: 'windowCloses', target: 1 }
     ];
 
