@@ -213,3 +213,26 @@ html, body
     background: rgb(238, 238, 238);
     z-index: 0;
 }
+
+.viz-indicator-cross
+{
+    border-radius: 0;
+    height: 100%;
+    width: 1.5em;
+}
+
+.viz-indicator-cross.viz-indicator
+{
+    background: rgb(168, 168, 168);
+    left: 40%;
+}
+
+.viz-indicator-cross.viz-indicator-left
+{
+    transform: rotate(-45deg);
+}
+
+.viz-indicator-cross.viz-indicator-right
+{
+    transform: rotate(45deg);
+}

@@ -2,6 +2,7 @@ export default (callback) => {
 
     const goals = [
         { measure: 'seconds', target: 10 },
+        { measure: 'windowCloses', target: 1 },
         { measure: 'clicks', target: 10 },
         { measure: 'mouseHoldLength', target: 1 },
         { measure: 'keyPresses', target: 9 },
@@ -9,8 +10,7 @@ export default (callback) => {
         { measure: 'uniqueKeyPresses', target: 16 },
         { measure: 'mouseVelocity', target: 10 },
         { measure: 'windowResizePercentage', target: 30 },
-        { measure: 'clickButtonRatio', target: 0.5 },
-        { measure: 'windowCloses', target: 1 }
+        { measure: 'clickButtonRatio', target: 0.5 }
     ];
 
     // Initial state

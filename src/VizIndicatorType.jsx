@@ -4,5 +4,6 @@ export default {
     MergingPair: 2,
     EquilibriumPair: 3,
     Gauge: 4,
-    Multiple: 5
+    Multiple: 5,
+    Cross: 6
 }

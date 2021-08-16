@@ -97,6 +97,12 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType })
                     <span className="viz-indicator viz-indicator-right" style={vizIndicatorStylePropsRight}></span>
                   </React.Fragment>
 
+            : (vizIndicatorType === VizIndicatorType.Cross)
+                ? <React.Fragment>
+                <span className="viz-indicator viz-indicator-cross viz-indicator-left"></span>
+                <span className="viz-indicator viz-indicator-cross viz-indicator-right"></span>
+                </React.Fragment>
+
             : <span className="viz-indicator" style={vizIndicatorStyleProps}></span>
             }
         </span>
