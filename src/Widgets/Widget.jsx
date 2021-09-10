@@ -3,7 +3,7 @@ import React from 'react'
 import VizIndicatorType from '../VizIndicatorType'
 import VizType from '../VizType'
 
-export default ({ title, value, target, vizType, vizIndicatorType }) => {
+export default ({ title, value, target, isComplete, vizType, vizIndicatorType }) => {
 
     let vizCssClassName = '';
     let centerChildren = false;
@@ -40,7 +40,7 @@ export default ({ title, value, target, vizType, vizIndicatorType }) => {
             break;
     }
 
-    let percentage = (value >= target) ? 100 : (value/target) * 100;
+    let percentage = (isComplete || value >= target) ? 100 : (value/target) * 100;
 
     switch(vizIndicatorType)
     {

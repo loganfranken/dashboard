@@ -53,6 +53,8 @@ export default (callback) => {
                 return;
             }
 
+            goal.isComplete = true;
+
             // Is this the last goal?
             if(i >= goals.length)
             {
