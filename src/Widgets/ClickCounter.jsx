@@ -4,10 +4,9 @@ import VizIndicatorType from '../VizIndicatorType'
 import VizType from '../VizType'
 import Widget from './Widget'
 
-export default ({ clicks, target, isComplete }) =>
+export default ({ clicks, target }) =>
     <Widget title="Clicks"
         value={clicks}
         target={target}
-        isComplete={isComplete}
         vizType={VizType.Circle}
         vizIndicatorType={VizIndicatorType.Growing} />

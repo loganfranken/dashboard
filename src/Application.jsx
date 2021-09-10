@@ -28,19 +28,20 @@ export default hot(() => {
   const mouseVelocityGoal = summary.goals.find(goal => goal.measure === 'mouseVelocity');
   const windowResizePercentageGoal = summary.goals.find(goal => goal.measure === 'windowResizePercentage');
   const clickButtonRatioGoal = summary.goals.find(goal => goal.measure === 'clickButtonRatio');
+  const windowClosesGoal = summary.goals.find(goal => goal.measure === 'windowCloses');
 
   return <div className="dashboard">
     <div className="widget-container">
-      {summary.activeMeasures.includes('seconds') && <Timer seconds={summary.seconds} isComplete={secondsGoal.isComplete} /> }
-      {summary.activeMeasures.includes('clicks') && <ClickCounter clicks={summary.clicks} target={clicksGoal.target} isComplete={clicksGoal.isComplete} /> }
-      {summary.activeMeasures.includes('mouseHoldLength') && <MouseHoldLengthMeasurer mouseHoldLength={summary.mouseHoldLength} target={mouseHoldLengthGoal.target} isComplete={mouseHoldLengthGoal.isComplete} /> }
-      {summary.activeMeasures.includes('keyPresses') && <KeyPressCounter keyPresses={summary.keyPresses} target={keyPressGoal.target} isComplete={keyPressGoal.isComplete} /> }
-      {summary.activeMeasures.includes('mouseDistance') && <MouseDistanceMeasurer mouseDistance={summary.mouseDistance} target={mouseDistanceGoal.target} isComplete={mouseDistanceGoal.isComplete} /> }
-      {summary.activeMeasures.includes('uniqueKeyPresses') && <UniqueKeyPressCounter uniqueKeyPresses={summary.uniqueKeyPresses} target={uniqueKeyPressGoal.target} isComplete={uniqueKeyPressGoal.isComplete} /> }
-      {summary.activeMeasures.includes('mouseVelocity') && <MouseVelocityMeasurer mouseVelocity={summary.mouseVelocity} target={mouseVelocityGoal.target} isComplete={mouseVelocityGoal.isComplete} /> }
-      {summary.activeMeasures.includes('windowResizePercentage') && <WindowResizeMeasurer windowResizePercentage={summary.windowResizePercentage} target={windowResizePercentageGoal.target} isComplete={windowResizePercentageGoal.isComplete} /> }
-      {summary.activeMeasures.includes('clickButtonRatio') && <ClickButtonRatioMeasurer clickButtonRatio={summary.clickButtonRatio} target={clickButtonRatioGoal.target} isComplete={clickButtonRatioGoal.isComplete} /> }
-      {summary.activeMeasures.includes('windowCloses') && <WindowCloseMeasurer windowCloses={summary.windowCloses} /> }
+      {summary.activeMeasures.includes('seconds') && <Timer seconds={summary.seconds} /> }
+      {summary.activeMeasures.includes('clicks') && <ClickCounter clicks={summary.clicks} target={clicksGoal.target} /> }
+      {summary.activeMeasures.includes('mouseHoldLength') && <MouseHoldLengthMeasurer mouseHoldLength={summary.mouseHoldLength} target={mouseHoldLengthGoal.target} /> }
+      {summary.activeMeasures.includes('keyPresses') && <KeyPressCounter keyPresses={summary.keyPresses} target={keyPressGoal.target} /> }
+      {summary.activeMeasures.includes('mouseDistance') && <MouseDistanceMeasurer mouseDistance={summary.mouseDistance} target={mouseDistanceGoal.target} /> }
+      {summary.activeMeasures.includes('uniqueKeyPresses') && <UniqueKeyPressCounter uniqueKeyPresses={summary.uniqueKeyPresses} target={uniqueKeyPressGoal.target} /> }
+      {summary.activeMeasures.includes('mouseVelocity') && <MouseVelocityMeasurer mouseVelocity={summary.mouseVelocity} target={mouseVelocityGoal.target} /> }
+      {summary.activeMeasures.includes('windowResizePercentage') && <WindowResizeMeasurer windowResizePercentage={summary.windowResizePercentage} target={windowResizePercentageGoal.target} /> }
+      {summary.activeMeasures.includes('clickButtonRatio') && <ClickButtonRatioMeasurer clickButtonRatio={summary.clickButtonRatio} target={clickButtonRatioGoal.target} /> }
+      {summary.activeMeasures.includes('windowCloses') && <WindowCloseMeasurer windowCloses={summary.windowCloses} target={windowClosesGoal.target} /> }
     </div>
   </div>
 

@@ -3,7 +3,7 @@ import React from 'react'
 import VizIndicatorType from '../VizIndicatorType'
 import VizType from '../VizType'
 
-export default ({ title, value, target, isComplete, vizType, vizIndicatorType }) => {
+export default ({ title, value, target, vizType, vizIndicatorType }) => {
 
     let vizCssClassName = '';
     let centerChildren = false;
@@ -40,7 +40,7 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType })
             break;
     }
 
-    let percentage = isComplete ? 100 : (value >= target) ? 100 : (value/target) * 100;
+    let percentage = (value >= target) ? 100 : (value/target) * 100;
 
     switch(vizIndicatorType)
     {
@@ -86,7 +86,7 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType })
 
     return <div className="panel widget">
         <h2>{title}</h2>
-        <span className={'viz ' + vizCssClassName + (centerChildren ? ' viz-center-children' : '') + (hasMultipleChildren ? ' viz-multiple-children' : '') + (isComplete ? ' complete' : '')}>
+        <span className={'viz ' + vizCssClassName + (centerChildren ? ' viz-center-children' : '') + (hasMultipleChildren ? ' viz-multiple-children' : '') + (percentage >= 100 ? ' complete' : '')}>
             {value}
             {vizIndicatorType === VizIndicatorType.Multiple
                 ? [...Array(Math.min(value, target))].map((e, i) => <span className="viz-indicator" style={vizIndicatorStyleProps}></span>)
