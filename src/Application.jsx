@@ -32,7 +32,7 @@ export default hot(() => {
 
   return <div className="dashboard">
     <div className="widget-container">
-      {summary.activeMeasures.includes('seconds') && <Timer seconds={summary.seconds} /> }
+      {summary.activeMeasures.includes('seconds') && <Timer seconds={summary.seconds} target={secondsGoal.target} /> }
       {summary.activeMeasures.includes('clicks') && <ClickCounter clicks={summary.clicks} target={clicksGoal.target} /> }
       {summary.activeMeasures.includes('mouseHoldLength') && <MouseHoldLengthMeasurer mouseHoldLength={summary.mouseHoldLength} target={mouseHoldLengthGoal.target} /> }
       {summary.activeMeasures.includes('keyPresses') && <KeyPressCounter keyPresses={summary.keyPresses} target={keyPressGoal.target} /> }
