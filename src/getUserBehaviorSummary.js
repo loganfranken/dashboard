@@ -74,17 +74,7 @@ export default (callback) => {
 
     // Set up calls to return state
     const update = () => {
-
-        //const currActiveMeasuresCount = state.activeMeasures.length;
-
         assessGoals();
-
-        // If we've added a new active measure, let's reset all existing measures
-        // if(state.activeMeasures.length != currActiveMeasuresCount)
-        // {
-        //     resetGoals();
-        // }
-
         callback({ ...state });
     };
 
@@ -98,6 +88,11 @@ export default (callback) => {
     let mouseDownInterval = null;
 
     const updateMouseHoldLength = (value) => {
+
+        if(!state.activeMeasures.includes('mouseHoldLength'))
+        {
+            return;
+        }
 
         if(typeof value !== 'undefined')
         {
@@ -142,7 +137,10 @@ export default (callback) => {
                                             : (leftClicks/rightClicks);
         
         // Measure: Number of times user has clicked
-        state.clicks++;
+        if(state.activeMeasures.includes('clicks'))
+        {
+            state.clicks++;
+        }
 
         update();
 
@@ -158,13 +156,21 @@ export default (callback) => {
     let keysPressed = [];
     addEventListener('keyup', (evt) => {
 
-        if(!keysPressed.includes(evt.code))
+        if(state.activeMeasures.includes('uniqueKeyPresses'))
         {
-            keysPressed.push(evt.code);
+            if(!keysPressed.includes(evt.code))
+            {
+                keysPressed.push(evt.code);
+            }
+    
+            state.uniqueKeyPresses = keysPressed.length;
         }
 
-        state.keyPresses++;
-        state.uniqueKeyPresses = keysPressed.length;
+        if(state.activeMeasures.includes('keyPresses'))
+        {
+            state.keyPresses++;
+        }
+        
         update();
     });
 
@@ -181,12 +187,18 @@ export default (callback) => {
         {
             // Measure: Mouse Distance
             const distance = Math.sqrt(Math.pow(Math.abs(lastX - x), 2), Math.pow(Math.abs(lastY - y), 2));
-            state.mouseDistance += distance;
-
+            if(state.activeMeasures.includes('mouseDistance'))
+            {
+                state.mouseDistance += distance;
+            }
+            
             if(lastTime !== null)
             {
-                // Measure: Mouse Velocity
-                state.mouseVelocity = distance / (time - lastTime);
+                if(state.activeMeasures.includes('mouseVelocity'))
+                {
+                    // Measure: Mouse Velocity
+                    state.mouseVelocity = distance / (time - lastTime);
+                }
             }
 
             update();

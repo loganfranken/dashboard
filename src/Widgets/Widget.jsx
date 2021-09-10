@@ -41,6 +41,7 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType })
     }
 
     let percentage = (isComplete || value >= target) ? 100 : (value/target) * 100;
+    let cappedPercentage = 0;
 
     switch(vizIndicatorType)
     {
@@ -61,13 +62,13 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType })
             break;
 
         case VizIndicatorType.Multiple:
-            percentage = (100 / Math.sqrt(target));
+            cappedPercentage = (100 / Math.sqrt(target));
             hasMultipleChildren = true;
-            vizIndicatorStyleProps = { height: `${percentage}%`, width: `${percentage}%` };
+            vizIndicatorStyleProps = { height: `${cappedPercentage}%`, width: `${cappedPercentage}%` };
             break;
 
         case VizIndicatorType.MergingPair:
-            const cappedPercentage = (percentage/100) * 80;
+            cappedPercentage = (percentage/100) * 80;
             vizIndicatorStylePropsLeft = { left: `${cappedPercentage}%`, top: `${cappedPercentage}%` };
             vizIndicatorStylePropsRight = { left: '80%', top: '80%' };
             break;
@@ -78,9 +79,9 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType })
             break;
 
         case VizIndicatorType.EquilibriumPair:
-            percentage = (percentage/100) * (40);
-            vizIndicatorStylePropsLeft = { left: 0, top: 'inherit', bottom: `${percentage}%` };
-            vizIndicatorStylePropsRight = { right: 0, top: `${percentage}%`, bottom: 'inherit' };
+            cappedPercentage = (percentage/100) * (40);
+            vizIndicatorStylePropsLeft = { left: 0, top: 'inherit', bottom: `${cappedPercentage}%` };
+            vizIndicatorStylePropsRight = { right: 0, top: `${cappedPercentage}%`, bottom: 'inherit' };
             break;
     }
 
@@ -89,7 +90,7 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType })
         <span className={'viz ' + vizCssClassName + (centerChildren ? ' viz-center-children' : '') + (hasMultipleChildren ? ' viz-multiple-children' : '') + (percentage >= 100 ? ' complete' : '')}>
             {value}
             {vizIndicatorType === VizIndicatorType.Multiple
-                ? [...Array(Math.min(value, target))].map((e, i) => <span className="viz-indicator" style={vizIndicatorStyleProps}></span>)
+                ? [...Array(Math.min(value, target))].map((e, i) => <span className="viz-indicator" key={i} style={vizIndicatorStyleProps}></span>)
 
             : (vizIndicatorType === VizIndicatorType.EquilibriumPair || vizIndicatorType == VizIndicatorType.MergingPair)
                 ? <React.Fragment>

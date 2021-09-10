@@ -5,7 +5,7 @@ import VizType from '../VizType'
 import VizIndicatorType from '../VizIndicatorType'
 
 export default ({ keyPresses, target, isComplete }) =>
-    <Widget title="Key Press"
+    <Widget title="Key Presses"
         value={keyPresses}
         target={target}
         isComplete={isComplete}
