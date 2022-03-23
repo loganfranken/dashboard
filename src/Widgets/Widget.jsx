@@ -85,7 +85,7 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType })
             break;
     }
 
-    return <div className="panel widget">
+    return <div className="widget">
         <h2>{title}</h2>
         <span className={'viz ' + vizCssClassName + (centerChildren ? ' viz-center-children' : '') + (hasMultipleChildren ? ' viz-multiple-children' : '') + (percentage >= 100 ? ' complete' : '')}>
             {value}
