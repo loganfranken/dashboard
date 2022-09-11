@@ -74,7 +74,7 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType })
             break;
 
         case VizIndicatorType.MergingPair:
-            cappedPercentage = (percentage/100) * 80;
+            cappedPercentage = ((percentage/100) * 75) + 5;
             vizIndicatorStylePropsLeft = { left: `${cappedPercentage}%`, top: `${cappedPercentage}%` };
             vizIndicatorStylePropsRight = { left: '80%', top: '80%' };
             break;

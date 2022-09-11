@@ -17,7 +17,7 @@ export default (callback) => {
     let state = {
 
         goals,
-        activeMeasures: ['seconds'],
+        activeMeasures: ['mouseDistance'],
 
         seconds: 0,
 
