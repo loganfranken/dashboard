@@ -10,4 +10,4 @@ export default ({ mouseHoldLength, target, isComplete }) =>
         target={target}
         isComplete={isComplete}
         vizType={VizType.Circle}
-        vizIndicatorType={VizIndicatorType.Growing} />
+        vizIndicatorType={VizIndicatorType.GrowingShrinking} />

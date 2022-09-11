@@ -6,6 +6,7 @@ import VizType from '../VizType'
 export default ({ title, value, target, isComplete, vizType, vizIndicatorType }) => {
 
     let vizCssClassName = '';
+    let vizIndicatorCssClassName = '';
     let centerChildren = false;
     let hasMultipleChildren = false;
 
@@ -46,6 +47,8 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType })
     switch(vizIndicatorType)
     {
         case VizIndicatorType.RadialPositioned:
+            vizIndicatorCssClassName = 'viz-indicator-radial';
+
             const radius = 30;
             const buffer = 50;
         
@@ -55,6 +58,9 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType })
 
             vizIndicatorStyleProps = { left: `${y}%`, top: `${x}%` };
             break;
+
+        case VizIndicatorType.GrowingShrinking:
+            vizIndicatorCssClassName = 'viz-indicator-growing-shrinking';
 
         case VizIndicatorType.Growing:
             centerChildren = true;
@@ -104,7 +110,7 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType })
                 <span className="viz-indicator viz-indicator-cross viz-indicator-right"></span>
                 </React.Fragment>
 
-            : <span className={'viz-indicator' + (vizIndicatorType === VizIndicatorType.RadialPositioned ? ' viz-indicator-radial' : '')} style={vizIndicatorStyleProps}></span>
+            : <span className={'viz-indicator ' + vizIndicatorCssClassName} style={vizIndicatorStyleProps}></span>
             }
         </span>
     </div>

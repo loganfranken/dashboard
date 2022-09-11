@@ -1,9 +1,10 @@
 export default {
     RadialPositioned: 0,
     Growing: 1,
-    MergingPair: 2,
-    EquilibriumPair: 3,
-    Gauge: 4,
-    Multiple: 5,
-    Cross: 6
+    GrowingShrinking: 2,
+    MergingPair: 3,
+    EquilibriumPair: 4,
+    Gauge: 5,
+    Multiple: 6,
+    Cross: 7
 }

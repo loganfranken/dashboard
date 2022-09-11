@@ -83,19 +83,13 @@ html, body
     position: absolute;
     top: 0;
     right: 0;
-    transition: background-color 0.3s, height 0.5s, width 0.5s, left 0.1s, top 0.1s;
+    transition: background-color 0.3s, height 0.1s, width 0.1s, left 0.1s, top 0.1s;
     width: 15%;   
 }
 
 .complete .viz-indicator
 {
     background: rgb(72, 156, 235);
-}
-
-.viz-indicator-radial
-{
-    margin-left: -7.5%;
-    margin-top: -7.5%;
 }
 
 .viz-center-children
@@ -166,6 +160,17 @@ html, body
 .complete.viz-square-outline
 {
     border-color: rgb(218, 235, 251);
+}
+
+.viz-indicator-radial
+{
+    margin-left: -7.5%;
+    margin-top: -7.5%;
+}
+
+.viz-indicator-growing-shrinking
+{
+    transition: height 0.5s, width 0.5s;
 }
 
 .viz-indicator-left, .viz-indicator-right
