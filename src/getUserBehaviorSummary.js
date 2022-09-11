@@ -17,7 +17,7 @@ export default (callback) => {
     let state = {
 
         goals,
-        activeMeasures: ['windowCloses'],
+        activeMeasures: ['seconds'],
 
         seconds: 0,
 
@@ -39,6 +39,12 @@ export default (callback) => {
     const assessGoals = () => {
 
         goals.forEach((goal, i) => {
+
+            // Is this goal already completed?
+            if(goal.isComplete)
+            {
+                return;
+            }
 
             // Are we measuring this goal yet?
             if(!state.activeMeasures.includes(goal.measure))
@@ -62,11 +68,17 @@ export default (callback) => {
             }
 
             // If we found a completed goal, let's unlock the next measure
-            const nextGoal = goals[i + 1];
-            if(!state.activeMeasures.includes(nextGoal.measure))
-            {
-                state.activeMeasures.push(nextGoal.measure);
-            }
+            setTimeout(() => {
+
+                const nextGoal = goals[i + 1];
+                if(!state.activeMeasures.includes(nextGoal.measure))
+                {
+                    state.activeMeasures.push(nextGoal.measure);
+                }
+
+            }, 3000);
+
+
 
         });
 
