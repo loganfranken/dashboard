@@ -17,7 +17,7 @@ export default (callback) => {
     let state = {
 
         goals,
-        activeMeasures: ['mouseVelocity'],
+        activeMeasures: ['clickButtonRatio'],
 
         seconds: 0,
 

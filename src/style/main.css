@@ -145,7 +145,13 @@ html, body
 .viz-blank
 {
     background: transparent;
+    box-shadow: none;
     position: relative;
+}
+
+.viz-blank .viz-indicator
+{
+    box-shadow: 0 0 20px rgb(243, 243, 243);
 }
 
 .complete.viz-blank
