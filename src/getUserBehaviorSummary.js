@@ -17,7 +17,7 @@ export default (callback) => {
     let state = {
 
         goals,
-        activeMeasures: ['clickButtonRatio'],
+        activeMeasures: ['windowCloses'],
 
         seconds: 0,
 
