@@ -60,6 +60,7 @@ html, body
 {
     aspect-ratio: 1 / 1;
     background: rgb(238, 238, 238);
+    box-shadow: 0 0 20px rgb(243, 243, 243);
     display: block;
     margin: 2em auto;
     max-width: 20em;
@@ -78,17 +79,23 @@ html, body
 {
     background: rgb(168, 168, 168);
     display: block;
-    height: 1.5em;
+    height: 15%;
     position: absolute;
     top: 0;
     right: 0;
-    transition: background-color 0.3s, height 0.1s, width 0.1s;
-    width: 1.5em;
+    transition: background-color 0.3s, height 0.1s, width 0.1s, left 0.1s, top 0.1s;
+    width: 15%;   
 }
 
 .complete .viz-indicator
 {
     background: rgb(72, 156, 235);
+}
+
+.viz-indicator-radial
+{
+    margin-left: -7.5%;
+    margin-top: -7.5%;
 }
 
 .viz-center-children
@@ -117,14 +124,9 @@ html, body
     position: relative;
 }
 
-.viz-circle, .viz-circle-pair
+.viz-circle, .viz-circle-pair, .viz-circle .viz-indicator
 {
-    border-radius: 7em;
-}
-
-.viz-circle .viz-indicator
-{
-    border-radius: 7em;
+    border-radius: 10em;
 }
 
 .viz-half-circle

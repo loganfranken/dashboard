@@ -1,7 +1,7 @@
 export default (callback) => {
 
     const goals = [
-        { measure: 'seconds', target: 10 },
+        { measure: 'seconds', target: 30 },
         { measure: 'clicks', target: 10 },
         { measure: 'mouseHoldLength', target: 1 },
         { measure: 'keyPresses', target: 9 },

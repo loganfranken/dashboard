@@ -47,13 +47,13 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType })
     {
         case VizIndicatorType.RadialPositioned:
             const radius = 30;
-            const buffer = 45;
+            const buffer = 50;
         
             const angle = ((value % 60) / 60) * 360;
-            const x = radius * Math.cos(angle) + buffer;
-            const y = radius * Math.sin(angle) + buffer;
+            const x = (radius * Math.cos(angle)) + buffer;
+            const y = (radius * Math.sin(angle)) + buffer;
 
-            vizIndicatorStyleProps = { left: y, top: x };
+            vizIndicatorStyleProps = { left: `${y}%`, top: `${x}%` };
             break;
 
         case VizIndicatorType.Growing:
@@ -104,7 +104,7 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType })
                 <span className="viz-indicator viz-indicator-cross viz-indicator-right"></span>
                 </React.Fragment>
 
-            : <span className="viz-indicator" style={vizIndicatorStyleProps}></span>
+            : <span className={'viz-indicator' + (vizIndicatorType === VizIndicatorType.RadialPositioned ? ' viz-indicator-radial' : '')} style={vizIndicatorStyleProps}></span>
             }
         </span>
     </div>
