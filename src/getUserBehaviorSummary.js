@@ -7,7 +7,7 @@ export default (callback) => {
         { measure: 'keyPresses', target: 9 },
         { measure: 'mouseDistance', target: 5000 },
         { measure: 'uniqueKeyPresses', target: 16 },
-        { measure: 'mouseVelocity', target: 10 },
+        { measure: 'mouseVelocity', target: 20 },
         { measure: 'windowResizePercentage', target: 30 },
         { measure: 'clickButtonRatio', target: 0.5 },
         { measure: 'windowCloses', target: 1 }
@@ -17,7 +17,7 @@ export default (callback) => {
     let state = {
 
         goals,
-        activeMeasures: ['mouseDistance'],
+        activeMeasures: ['mouseVelocity'],
 
         seconds: 0,
 

@@ -125,19 +125,21 @@ html, body
 
 .viz-half-circle
 {
-    border-radius: 7em 7em 0 0;
-    height: 3.5em;
+    border-radius: 10em 10em 0 0;
+    height: 10em;
     overflow: hidden;
     position: relative;
 }
 
 .viz-half-circle .viz-indicator
 {
-    height: 7em;
-    left: -3.5em;
+    height: 150%;
+    left: -50%;
+    top: 100%;
     position: absolute;
-    transform-origin: center right;
-    width: 7em;
+    transform-origin: top center;
+    transition: transform 0.5s;
+    width: 200%;
 }
 
 .viz-blank

@@ -80,7 +80,7 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType })
             break;
 
         case VizIndicatorType.Gauge:
-            const degree = ((percentage/100) * 180) - 90;
+            const degree = ((percentage/100) * 180);
             vizIndicatorStyleProps = { transform: `rotate(${degree}deg)` }
             break;
 
