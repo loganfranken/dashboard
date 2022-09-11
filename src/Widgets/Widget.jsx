@@ -52,7 +52,8 @@ export default ({ title, value, target, isComplete, vizType, vizIndicatorType })
             const radius = 30;
             const buffer = 50;
         
-            const angle = ((value % 60) / 60) * 360;
+            const cappedValue = isComplete ? target : value;
+            const angle = ((cappedValue % 60) / 60) * 360;
             const x = (radius * Math.cos(angle)) + buffer;
             const y = (radius * Math.sin(angle)) + buffer;
 
