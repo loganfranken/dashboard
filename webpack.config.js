@@ -36,6 +36,6 @@ export default {
     }
   },
   devServer: {
-    contentBase: './dist'
+    static: './dist'
   }
 };

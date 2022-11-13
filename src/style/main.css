@@ -37,6 +37,30 @@ html, body
     max-width: 80em;
 }
 
+/* =PROGRESS
+------------------------------------------------------- */
+
+progress {
+    appearance: none;
+    height: 5px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+progress::-webkit-progress-bar {
+    background-color: rgb(238, 238, 238);
+}
+
+progress::-webkit-progress-value {
+    background-color: rgb(72, 156, 235);
+    transition: width 1s;
+}
+
+progress::-moz-progress-bar {
+}
+
 /* =WIDGET
 ------------------------------------------------------- */
 

@@ -9,6 +9,7 @@ import KeyPressCounter from './Widgets/KeyPressCounter'
 import MouseDistanceMeasurer from './Widgets/MouseDistanceMeasurer'
 import MouseHoldLengthMeasurer from './Widgets/MouseHoldLengthMeasurer'
 import MouseVelocityMeasurer from './Widgets/MouseVelocityMeasurer'
+import ProgressMarker from './Widgets/ProgressMarker'
 import Timer from './Widgets/Timer'
 import UniqueKeyPressCounter from './Widgets/UniqueKeyPressCounter'
 import WindowCloseMeasurer from './Widgets/WindowCloseMeasurer'
@@ -31,8 +32,10 @@ export default hot(() => {
   const windowClosesGoal = summary.goals.find(goal => goal.measure === 'windowCloses');
 
   const currentMeasure = summary.activeMeasures[summary.activeMeasures.length - 1];
+  const overallPercentage = (summary.goals.filter(goal => goal.isComplete).length / summary.goals.length) * 100;
 
   return <div className="dashboard">
+    <ProgressMarker percentage={overallPercentage} />
     {currentMeasure === 'seconds' && <Timer seconds={summary.seconds} target={secondsGoal.target} isComplete={secondsGoal.isComplete} />}
     {currentMeasure === 'clicks' && <ClickCounter clicks={summary.clicks} target={clicksGoal.target} isComplete={clicksGoal.isComplete} />}
     {currentMeasure === 'mouseHoldLength' && <MouseHoldLengthMeasurer mouseHoldLength={summary.mouseHoldLength} target={mouseHoldLengthGoal.target} isComplete={mouseHoldLengthGoal.isComplete} />}
